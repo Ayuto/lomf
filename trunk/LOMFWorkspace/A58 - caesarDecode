@@ -1,0 +1,11 @@
+{A57}
+
+caesarDecode(text:String, shift:Card):String
+[* Dekodiert den Base64-String <text> mit Hilfe der Verschiebung <shift>. *]
+::= text.=("").?(
+		then --> "",
+		else --> [realshift --> shift.%(BASE64_LENGTH()),
+							charno --> text._c.base64No]
+							realshift.<=(charno).?(
+				then --> charno.-C-(realshift),
+				else --> BASE64_LENGTH().-C-(realshift.-C-(charno))).base64Character.+S+(text.s_.caesarDecode(shift)));

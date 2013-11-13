@@ -1,0 +1,2 @@
+"BCD".caesarDecode(1) == "ABC"
+"BCD".caesarDecode(65) == "ABC"
