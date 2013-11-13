@@ -1,0 +1,7 @@
+<=>(x:Bool, y:Bool):Bool
+[* Überprüft ob <x> äquivalent zu <y> ist. *]
+::= x.=(y);
+
+=>(x:Bool, y:Bool):Bool
+[* Logische Implikation. *]
+::= x.?(then --> y, else --> true);

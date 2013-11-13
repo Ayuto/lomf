@@ -1,0 +1,10 @@
+{A32}
+{A34}
+
+contains(x:String, substring:String):Bool
+[* Überprüft, ob <substring> in <x> ist. *]
+::= x.length.<(substring.length).?(
+		then --> false, 
+		else --> x.startsWith(substring).?(
+				then --> true,
+				else --> x.s_.contains(substring)));

@@ -1,0 +1,13 @@
+add(x:Card, y:Card):Card
+[* Addiert <x> und <y>. *]
+::= y.=(0).?(
+			then --> x,
+			else --> add(x.+, y.-C-));
+
+mult(x:Card, y:Card):Card
+[* Mulitpliziert <x> und <y>. *]
+::= y.=(0).?(
+				then --> 0,
+				else --> y.=(1).?(
+										then --> x,
+										else --> mult(x, y.-C-).+(x)));

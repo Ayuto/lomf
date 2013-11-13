@@ -1,0 +1,5 @@
+length(x:String):Card
+[* Berechnet die Länge des Strings. *]
+::= x.=("").?(
+		then --> 0,
+		else --> length(x.s_).+);

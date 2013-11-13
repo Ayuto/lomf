@@ -1,0 +1,4 @@
+sort(x:String):String
+[* Sortiert den String <x> in aufsteigender Folge nach
+** dem ASCII-Wert der einzelnen Zeichen. *]
+::=TODO  !!!

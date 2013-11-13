@@ -1,0 +1,14 @@
+{A18}
+{operators}
+
+root(x:Card, basis:Card):Card
+[* Berechnet die größte Zahl, dessen Potenz mit der Basis <basis>
+** nicht größer ist als <x>.
+*]
+::= rootHelper(x, basis, 1);
+
+rootHelper(x:Card, basis:Card, result:Card):Card
+[* Hilfsfunktion für root(). *]
+::= xpower(result, basis).<=(x).?(
+			then --> rootHelper(x, basis, result.+),
+			else --> result.-C-);

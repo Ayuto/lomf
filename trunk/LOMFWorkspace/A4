@@ -1,0 +1,5 @@
+{A3}
+
+max3(x:Card, y:Card, z:Card):Card
+[* Gibt den größeren Wert der drei Parameter zurück. *]
+::= max(max(x, y), z);

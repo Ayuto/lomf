@@ -1,0 +1,5 @@
+"abcdefg".remove("def") == "abcg"
+"aacdbcd".remove("bcd") == "aacd"
+"abcdefg".remove("") == "abcdefg"
+"".remove("a") == §()
+"abababa".remove("b") == "aababa"

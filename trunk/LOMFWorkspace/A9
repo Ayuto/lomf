@@ -1,0 +1,5 @@
+{A8}
+
+product(x:Card, y:Card):Card
+[* Berechnet das Produkt zwischen <x> und <y>. *]
+::= factorial(y)./C/(factorial(x.-C-));

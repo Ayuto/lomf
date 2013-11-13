@@ -1,0 +1,14 @@
+{operators}
+{A36}
+
+BASE64_CHARS:String
+[* Alle Zeichen des Base64 Alphabets. *]
+::= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+check(x:String):Bool
+[* Überprüft, ob der String <x> nur Base64 Zeichen benutzt. *]
+::= x.=("").?(
+		then --> true,
+		else --> BASE64_CHARS().contains(x._c.+S+("")).?(
+				then --> x.s_.check,
+				else --> false));

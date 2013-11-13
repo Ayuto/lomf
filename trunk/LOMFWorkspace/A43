@@ -1,0 +1,9 @@
+{operators}
+{A42}
+{A36}
+
+removeAll(x:String, substring:String):String
+[* Entfernt alle Auftreten von <substring> aus <x>. *]
+::= substring.!=("").&&(x.contains(substring)).?(
+		then --> x.remove(substring).removeAll(substring),
+		else --> x);

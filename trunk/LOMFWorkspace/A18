@@ -1,0 +1,14 @@
+{operators}
+{A10}
+{A2}
+
+isEven(x:Card):Bool
+[* Überprüft, ob x gerade ist. *]
+::= x.%(2).=(0);
+
+xpower(basis:Card, exponent:Card):Card
+[* Berechnet basis**exponent. *]
+::= exponent.=(0).?(then --> basis.=(0).?(then --> §(), else --> 1),
+										else --> basis.=(0).?(then --> 0,
+																				  else --> exponent.isEven().?(then --> square(xpower(basis, exponent./C/)),
+																																			 else --> xpower(basis, exponent.-C-).*(basis))));

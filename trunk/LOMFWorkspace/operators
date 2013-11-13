@@ -1,0 +1,32 @@
+!(x:Bool):Bool
+[* Negiert x. *]
+::= x.?(then --> false, else --> true);
+
+>(x:Card, y:Card):Bool
+[* Überprüft, ob x größer ist als y. *]
+::= x.<(y).?(then --> false,
+					   else --> x.=(y).!);
+
+>=(x:Card, y:Card):Bool
+[* Überprüft, ob x größer oder gleich y ist. *]
+::= x.<(y).!;
+
+<=(x:Card, y:Card):Bool
+[* Überprüft, ob x kleiner oder gleich y ist. *]
+::= x.>(y).!;
+
+!= (x:Anything, y:Anything):Bool
+[* Überprüft, ob x ungleich y ist. *]
+::= x.=(y).!;
+
+||(x:Bool, /\y:Bool):Bool
+[* Logische oder-Verknüpfung. *]
+::= x.?(then --> true, else --> y.\/);
+
+&&(x:Bool, /\y:Bool):Bool
+[* Logische und-Verknüpfung. *]
+::= x.?(then --> y.\/, else --> false);
+
+%(x:Card, y:Card):Card
+[* Berechnet das Modulo. y = 0 ruft einen Fehler hervor! *]
+::= x.-C-(x./C/(y).*(y));

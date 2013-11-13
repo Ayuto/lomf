@@ -1,0 +1,9 @@
+"abcd".firstIndexOf("") == 0
+"abcd".firstIndexOf("a") == 0
+"abcd".firstIndexOf("b") == 1
+"abcd".firstIndexOf("cd") == 2
+"abcd".firstIndexOf("abcd") == 0
+"abcd".firstIndexOf("e") == §()
+"abcd".firstIndexOf("abcde") == §()
+"".firstIndexOf("") == 0
+"".firstIndexOf("a") == §()

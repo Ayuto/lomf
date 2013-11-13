@@ -1,0 +1,16 @@
+{operators}
+
+<=c<=(x:Character, y:Character):Bool
+[* Überprüft, ob der ASCII-Wert von <x> kleiner als der von <y> ist. *]
+::= x.toCardinal.<=(y.toCardinal);
+
+less(x:String, y:String):Bool
+[* Überprüft, ob <x> lexikographisch kleiner ist als <y>.
+** Das leere Zeichen ist kleiner als das leere Zeichen. *]
+::= x.=("").?(
+		then --> true,
+		else --> y.=("").?(
+				then --> false,
+				else --> x._c.<=c<=(y._c).?(
+						then --> x.s_.less(y.s_),
+						else --> false)));

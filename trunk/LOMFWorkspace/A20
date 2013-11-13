@@ -1,0 +1,5 @@
+{A19}
+
+geoAverage(x:Card, y:Card):Card
+[* Berechnet das geometrische Mittel zweier natürlicher Zahlen. *]
+::= squareRoot(x.*(y));

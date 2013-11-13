@@ -1,0 +1,7 @@
+"ababababab".indexOfAfter("b", 3) == 5
+"ababababab".indexOfAfter("ab", 3) == 4
+"ababababab".indexOfAfter("a", 0) == 2
+"ababababab".indexOfAfter("a", 1) == 2
+"ababababab".indexOfAfter("a", 2) == 4
+"abc".indexOfAfter("d", 0) == §()
+"abc".indexOfAfter("c", 3) == §()

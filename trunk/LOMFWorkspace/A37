@@ -1,0 +1,13 @@
+{A32}
+{A34}
+{operators}
+
+containsHowOften(x:String, substring:String):Card
+[* Ermittelt wie oft <substring> in <x> vorkommt. *]
+::= substring.=("").?(
+		then --> x.length.+,
+		else --> x.length.<(substring.length).?(
+				then --> 0,
+				else --> x.startsWith(substring).?(
+						then --> 1,
+						else --> 0).+(x.s_.containsHowOften(substring))));

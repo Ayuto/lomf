@@ -1,0 +1,5 @@
+xfib(0) == fib(0)
+xfib(1) == fib(1)
+xfib(2) == fib(2)
+xfib(3) == fib(3)
+xfib(4) == fib(4)

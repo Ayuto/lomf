@@ -1,0 +1,2 @@
+reverse("abcd") == "dcba"
+reverse("Hallo!") == "!ollaH"

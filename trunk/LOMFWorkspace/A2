@@ -1,0 +1,3 @@
+square(x:Card):Card
+[* Berechnet das Quadrat von <x>. *]
+::= x.*(x);

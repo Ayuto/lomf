@@ -1,0 +1,3 @@
+factorial(x:Card):Card
+[* Berechnet die Fakultät von <x>. Die Fakultät von 0 ist mit 1 definiert.*]
+::= x.<(2).?(1, factorial(x.-C-).*(x));

@@ -1,0 +1,5 @@
+power(base:Card, exponent:Card):Card
+[* Berechnet die Potenz <basis>**<exponent>. *]
+::= exponent.=(0).?(then --> base.=(0).?(then --> §(),
+															 					 else --> 1),
+									  else --> power(base, exponent.-C-).*(base));

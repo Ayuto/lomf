@@ -1,0 +1,4 @@
+startsWith("Hallo, Welt!", "Hallo") == true
+startsWith("Hallo, Welt!", "Hallo!") == false
+startsWith("abc", "") == true
+startsWith("", "abc") == false

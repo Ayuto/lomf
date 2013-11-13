@@ -1,0 +1,9 @@
+{operators}
+
+constant:Card
+[* Gibt die Zahl 3 zurück. *]
+::= 3;
+
+isGreaterThanConstant(x:Card):Bool
+[* Überprüft, ob x über dem Wert der Konstante liegt. *]
+::= x.>(constant());

@@ -1,0 +1,11 @@
+{A18}
+{A6}
+{operators}
+
+f(n:Card):Card
+[* asd *]
+::= n.<(2).?(
+			then --> 1,
+      else --> n.isEven().?(
+									then --> f(n./C/),
+									else --> f(n.*(constant3()).+(1))));

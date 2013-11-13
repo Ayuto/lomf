@@ -1,0 +1,4 @@
+geoAverage(0, 0) == 0
+geoAverage(0, 1) == 0
+geoAverage(2, 8) == 4
+geoAverage(4, 5) == squareRoot(4.*(5))
