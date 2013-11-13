@@ -1,0 +1,8 @@
+{A57}
+
+shift(text:String, key:String):String
+[* Enkodiert den String <text> mit dem Schlüssel <key>. *]
+::= text.=("").?(
+		then --> "",
+		else --> [charkey --> key._c]
+							text._c.caesarEncode(charkey.base64No).+S+(text.s_.shift(key.s_.+S+(charkey))));

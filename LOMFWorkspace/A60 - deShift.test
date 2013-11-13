@@ -1,0 +1,3 @@
+"BCD".deShift("B") == "ABC"
+"BCD".deShift("BB") == "ABC"
+"DDF".deShift("DC") == "ABC"
