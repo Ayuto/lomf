@@ -1,0 +1,2 @@
+endsWith("Hallo, Welt!", "Welt!") == true
+endsWith("Hallo, Welt!", "Welt!!") == false

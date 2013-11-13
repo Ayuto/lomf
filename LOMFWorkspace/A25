@@ -1,0 +1,14 @@
+{A18}
+{A6}
+
+f(n:Card):Card
+[* Gibt die Anzahl der Rekursionen von f aus Aufgabe 24 aus. *]
+::= fHelper(n, 0);
+
+fHelper(n:Card, result:Card):Card
+[* Hilfsfunktion für f(). *]
+::= n.<(2).?(
+			then --> result.+,
+			else --> n.isEven().?(
+									then --> fHelper(n./C/, result.+),
+									else --> fHelper(n.*(constant3()).+, result.+)));

@@ -1,0 +1,6 @@
+{A33}
+{A38}
+
+lastIndexOf(x:String, substring:String):Card
+[* Ermittelt die Position des letzten Auftretens von <substring> in <x>. *]
+::= x.length.-C-(x.reverse.firstIndexOf(substring.reverse)).-C-(substring.length);

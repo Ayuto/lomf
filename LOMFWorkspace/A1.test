@@ -1,0 +1,3 @@
+isGreaterThanConstant(2) == false
+isGreaterThanConstant(3) == false
+isGreaterThanConstant(4) == true

@@ -1,0 +1,15 @@
+true.toString() == "true"
+false.toString() == "false"
+
+97.toCharacter.toString() == "a"
+98.toCharacter.toString() == "b"
+
+0.toString() == "0"
+1.toString() == "1"
+2.toString() == "2"
+10.toString() == "10"
+11.toString() == "11"
+12.toString() == "12"
+400.toString() == "400"
+202.toString() == "202"
+1337.toString() == "1337"

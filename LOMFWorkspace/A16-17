@@ -1,0 +1,17 @@
+{A15}
+
+constant8:Card [* Gibt 8 zurück. *] ::= 8;
+
+toOctal(x:Card):Card 
+[* Konvertiert die Dezimaldarstellung von x zur Oktaldarstellung. *]
+::= numberConverterHelper(x, constant8(), 1);
+
+numberConverter(x:Card, base:Card):Card
+[* Konvertiert die Dezimaldarstellung von x in ein beliebiges anderes Zahlensystem "base". *]
+::= numberConverterHelper(x, base, 1);
+
+numberConverterHelper(x:Card, base:Card, result:Card):Card
+[* Konvertiert die Dezimaldarstellung von x in ein beliebiges anderes Zahlensystem. 
+** Wenn result nicht 1 ist, kommt Quatsch raus. *]
+::= x.=(0).?(then --> mirror(result).-C-./C/(constant10()),
+						 else --> numberConverterHelper(x./C/(base), base, result.*(constant10()).+(x.%(base))));

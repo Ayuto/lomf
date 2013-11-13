@@ -1,0 +1,3 @@
+%(dividend:Card, divisor:Card):Card
+[* Berechnet den Rest einer ganzzahligen Division (Modulo). <divisor> = 0 erzeugt einen Fehler! *]
+::= dividend.-C-(dividend./C/(divisor).*(divisor));

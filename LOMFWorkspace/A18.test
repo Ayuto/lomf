@@ -1,0 +1,7 @@
+xpower(2, 0) == power(2, 0)
+xpower(2, 1) == power(2, 1)
+xpower(2, 2) == power(2, 2)
+xpower(3, 3) == power(3, 3)
+xpower(3, 4) == power(3, 4)
+xpower(2, 500) == power(2, 500)
+xpower(0, 5) == 0

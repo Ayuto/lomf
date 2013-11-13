@@ -1,0 +1,7 @@
+{A34}
+
+firstIndexOf(x:String, substring:String):Card
+[* Ermittel die Position des ersten Auftretens von <substring> in <x>. *]
+::= x.startsWith(substring).?(
+		then --> 0,
+		else --> x.s_.firstIndexOf(substring).+);

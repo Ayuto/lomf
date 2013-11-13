@@ -1,0 +1,3 @@
+average(x:Card, y:Card):Card
+[* Berechnet den abgerundeten Durchschnitt zweier Zahlen. *]
+::= x.+(y)./C/;

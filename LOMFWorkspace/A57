@@ -1,0 +1,10 @@
+{operators}
+{A54}
+{A55}
+{A56}
+
+caesarEncode(text:String, shift:Card) [text.check]:String
+[* Enkodiert den Base64-String <text> mit Hilfe der Verschiebung <shift>. *]
+::= text.=("").?(
+		then --> "",
+		else --> text._c.base64No.+(shift).%(BASE64_LENGTH()).base64Character.+S+(text.s_.caesarEncode(shift)));

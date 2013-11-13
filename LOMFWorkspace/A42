@@ -1,0 +1,9 @@
+{A38}
+
+remove(x:String, substring:String):String
+[* Entfernt das erste Auftreten von <substring> in <x>. *]
+::= x.firstIndexOf(substring).=(0).?(
+		then --> substring.=("").?(
+				then --> x,
+				else --> remove(x.s_, substring.s_)),
+		else --> x._c.+S+(remove(x.s_, substring)));

@@ -1,0 +1,17 @@
+{Operators}
+{A2}
+
+isPrime(x:Card):Bool
+[* Überprüft, ob x eine Primzahl ist. *]
+::= x.<(2).?(
+		then --> false,
+		else --> isPrimeHelper(x, 2));
+
+isPrimeHelper(x:Card, current:Card):Bool
+[* Überprüft, ob x eine Primzahl ist. current gibt die aktuelle Testzahl an. *]
+::= square(current).>(x).?(
+		then --> true,
+		else --> x.%(current).=(0).?(
+				then --> false, 
+				else --> isPrimeHelper(x, current.+)));
+

@@ -1,0 +1,24 @@
+{operators}
+
+TRUE:String [* String Repräsentant für den Wahrheitswert "true" *] ::= "true";
+FALSE:String [* String Repräsentant für den Wahrheitswert "false" *] ::= "false";
+
+toString(x:Bool):String
+[* Wandelt den Wahrheitswert <x> in einen String um. *]
+::= x.?(
+		then --> TRUE(),
+		else --> FALSE());
+
+toString(x:Character):String
+[* Wandelt den Character <x> in einen String um. *]
+::= x.+S+("");
+
+ASCII_0:Card [* Gibt den ASCII Wert von 0 zurück. *] ::= 48;
+NUMBER_10:Card [* Gibt die 10 zurück. *] ::= 10;
+
+toString(x:Card):String
+[* Wandelt eine Zahl <x> in einen String um. *]
+::= [char --> x.%(NUMBER_10()).+(ASCII_0()).toCharacter]
+		x.<(NUMBER_10()).?(
+		then --> char.+S+(""),
+		else --> toString(x./C/(NUMBER_10())).+S+(char));

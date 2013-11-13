@@ -1,0 +1,3 @@
+"abcad".lastIndexOf("a") == 3
+"abcd".lastIndexOf("a") == 0
+"abcdabcd".lastIndexOf("bc") == 5

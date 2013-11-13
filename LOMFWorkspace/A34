@@ -1,0 +1,7 @@
+startsWith(x:String, substring:String):Bool
+[* Überprüft, ob <x> mit <substring> beginnt. *]
+::= substring.=("").?(
+		then --> true,
+		else --> x._c.=(substring._c).?(
+				then --> x.s_.startsWith(substring.s_),
+				else --> false));

@@ -1,0 +1,9 @@
+"a".less("b") == true
+"".less("") == true
+"".less("a") == true
+"b".less("a") == false
+"abc".less("aaa") == false
+"aabbaa".less("a") == false
+"b".less("abc") == false
+"abc".less("abd") == true
+"bcd".less("a") == false

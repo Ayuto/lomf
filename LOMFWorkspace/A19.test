@@ -1,0 +1,5 @@
+squareRoot(16) == 4
+squareRoot(15) == 3
+squareRoot(0)  == 0
+squareRoot(1)  == 1
+squareRoot(2)  == 1

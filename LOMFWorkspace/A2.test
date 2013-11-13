@@ -1,0 +1,4 @@
+square(0) == 0
+square(1) == 1
+square(2) == 4
+square(3) == 3.*(3)

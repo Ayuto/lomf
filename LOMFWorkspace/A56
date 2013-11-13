@@ -1,0 +1,8 @@
+{A55}
+{A41}
+
+BASE64_LENGTH:Card [* Länge des Base64 Alphabets. *] ::= 64;
+
+base64Character(x:Card) [x.<(BASE64_LENGTH())]:Character
+[* Ermittel das Base64-Zeichen aus dem Wert <x>. *]
+::= BASE64_CHARS().subString(x, x.+)._c;

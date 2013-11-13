@@ -1,0 +1,12 @@
+{A2}
+{operators}
+
+squareRoot(x:Card):Card
+[* Berechnet die größte Zahl, dessen Quadrat nicht größer ist als <x>. *]
+::= squareRootHelper(x, 1);
+
+squareRootHelper(x:Card, result:Card):Card
+[* Hilfsfunktions für squareRoot(). *]
+::= square(result).<=(x).?(
+			then --> squareRootHelper(x, result.+),
+			else --> result.-C-);

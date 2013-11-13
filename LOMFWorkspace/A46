@@ -1,0 +1,10 @@
+{A45}
+{operators}
+
+stringToBool(x:String):Bool
+[* Wandelt "true" oder "false" in den entsprechenden Wahrheitswert um. 
+** Ein anderer String erzeugt einen Fehler. *]
+::= [istrue --> x.=(TRUE())]
+		istrue.||(x.=(FALSE())).?(
+		then --> istrue,
+		else --> §());

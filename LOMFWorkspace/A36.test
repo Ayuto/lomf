@@ -1,0 +1,6 @@
+"abcdefg".contains("abc") == true
+"abcdefg".contains("cde") == true
+"abcdefg".contains("") == true
+"abcdefg".contains("acb") == false
+"".contains("") == true
+"".contains("abc") == false

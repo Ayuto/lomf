@@ -1,0 +1,7 @@
+isPrime(0) == false
+isPrime(1) == false
+isPrime(2) == true
+isPrime(3) == true
+isPrime(4) == false
+isPrime(5) == true
+isPrime(6) == false

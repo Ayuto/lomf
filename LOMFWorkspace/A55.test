@@ -1,0 +1,10 @@
+65.toCharacter.base64No == 0
+66.toCharacter.base64No == 1
+
+97.toCharacter.base64No == 26
+98.toCharacter.base64No == 27
+
+48.toCharacter.base64No == 52
+49.toCharacter.base64No == 53
+
+38.toCharacter.base64No == §()

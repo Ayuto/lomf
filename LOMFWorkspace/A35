@@ -1,0 +1,6 @@
+{A33}
+{A34}
+
+endsWith(x:String, substring:String):Bool
+[* Überprüft, ob <x> mit <substring> endet. *]
+::= startsWith(x.reverse(), substring.reverse());

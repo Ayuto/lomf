@@ -1,0 +1,8 @@
+subString(x:String, pos1:Card, pos2:Card):String
+[* Gibt die Zeichenkette zurück, die zwischen der Position <pos1> und
+** <pos2> liegt. *]
+::= pos1.=(0).?(
+		then --> pos2.=(0).?(
+				then --> "",
+				else --> x._c.+S+(subString(x.s_, 0, pos2.-C-))),
+		else --> subString(x.s_, pos1.-C-, pos2.-C-));

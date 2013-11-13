@@ -1,0 +1,5 @@
+constant3:Card [* Gibt 3 zurück. *] ::= 3;
+
+average3(x:Card, y:Card, z:Card):Card
+[* Berechnet den abgerundeten Durchschnitt dreier Zahlen. *]
+::= x.+(y.+(z))./C/(constant3());

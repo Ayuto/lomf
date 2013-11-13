@@ -1,0 +1,10 @@
+{A3}
+{operators}
+
+ggt(x:Card, y:Card):Card
+[* Berechnet den größten gemeinsamen Teiler von <x> und <y>.
+** <x> muss größer oder gleich <y> sein.
+** <y> == 0 erzeugt einen Fehler. *]
+::= x.%(y).=(0).?(
+			then --> y,
+			else --> ggt(y, x.%(y)));

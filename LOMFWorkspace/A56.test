@@ -1,0 +1,7 @@
+0.base64Character == 65.toCharacter
+1.base64Character == 66.toCharacter
+2.base64Character == 67.toCharacter
+3.base64Character == 68.toCharacter
+62.base64Character == 43.toCharacter
+63.base64Character == 47.toCharacter
+64.base64Character == §()

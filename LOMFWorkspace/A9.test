@@ -1,0 +1,4 @@
+product(2, 4) == 24
+product(0, 4) == §()
+product(3, 5) == 60
+product(3, 6) == 360

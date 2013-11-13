@@ -1,0 +1,15 @@
+{A11}
+
+xfib(x:Card):Card
+[* Berechnet die x-te Fibonacci-Zahl. *]
+::= xfibHelper(0, 1, x);
+
+xfibHelper(prev1:Card, prev2:Card, counter:Card):Card
+[*
+** Hilfsfunktion für xfib().
+** @param prev1:Card Vorletzte Fibonacci-Zahl
+** @param prev2:Card Letzte Fibonacci-Zahl
+** @param counter:Card Verbleibende Iterationen
+*]
+::= counter.=(0).?(then --> 1,
+									 else --> xfibHelper(prev2, prev1.+(prev2), counter.-C-).+(prev1));

@@ -1,0 +1,5 @@
+reverse(x:String):String
+[* Gibt den umgedrehten String <x> zurück. *]
+::= x.=("").?(
+				then --> "",
+				else --> reverse(x.s_).+S+(x._c));

@@ -1,0 +1,12 @@
+{operators}
+
+mirror(x:Card):Card
+[* Spiegelt die Zahl x. *]
+::= mirrorHelper(x, 0);
+
+constant10:Card [* Gibt 10 zurück. *] ::= 10;
+
+mirrorHelper(x:Card, result:Card):Card
+[* Hilfsfunktion zum spiegeln von x. *]
+::= x.>(0).?(then --> mirrorHelper(x./C/(constant10()), result.*(constant10()).+(x.%(constant10()))),
+             else --> result);

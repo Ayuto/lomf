@@ -1,0 +1,11 @@
+"aaaa".containsHowOften("") == 5
+"aaaa".containsHowOften("a") == 4
+"aaaa".containsHowOften("aa") == 3
+"aaaa".containsHowOften("aaa") == 2
+"aaaa".containsHowOften("aaaa") == 1
+"aaaa".containsHowOften("aaaaa") == 0
+"".containsHowOften("") == 1
+"".containsHowOften("abc") == 0
+"aab".containsHowOften("ab") == 1
+"ababa".containsHowOften("aba") == 2
+"aa".containsHowOften("a") == "aa".startsWith("a").?(1,0).+("a".containsHowOften("a"))
