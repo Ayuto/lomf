@@ -1,0 +1,4 @@
+"ABC".shift("B") == "BCD"
+"ABC".shift("BB") == "BCD"
+"AAA".shift("ABCD") == "ABC"
+"ABC".shift("DC") == "DDF"

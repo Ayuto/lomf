@@ -1,0 +1,8 @@
+{A58 - caesarDecode}
+
+deShift(text:String, key:String):String
+[* Dekodiert den String <text> mit dem Schlüssel <key>. *]
+::= text.=("").?(
+		then --> "",
+		else --> [charkey --> key._c]
+							text._c.caesarDecode(charkey.base64No).+S+(text.s_.deShift(key.s_.+S+(charkey))));
