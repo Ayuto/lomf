@@ -1,0 +1,22 @@
+{Übungen\ganzeZahlen.lomf}
+{Übungen\toString}
+{Übungen\stringToCard.lomf}
+
+minus:String
+[* negatives Vorzeichen *]
+::= "-";
+
+toString(x:Int):String
+[* Gibt die ganze Zahl <x> als Zeichenkette mit einem entsprechenden
+** Vorzeichen zurück. *]
+::= [normX --> x.normalizeInt()]
+normX.pos.<(normX.neg).?(minus().+S+(normX.neg.cardToString), normX.pos.cardToString);
+
+stringToInt(x:String):Int
+[* Konvertiert eine ganze Zahl (ggf. mit - Vorzeichen) in eine 
+** ganze Zahl. 
+** Fehler, wenn der String keine gültige Eingabe ist. *]
+::= x._c.=(minus()).?(
+		then --> int(0, x.s_.stringToCard),
+		else --> int(x.stringToCard, 0));
+
