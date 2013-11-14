@@ -1,21 +1,4 @@
-{Operations.lomf}
-
-int(pos:Card, neg:Card):Int
-[* Ganze Zahlen mit dem positiven Bestandteil <pos> und 
-** dem negativen Bestandteil <neg>. *];
-
-Card <<< Int ::= int(x, 0);
-
-normalizeInt(x:Int):Int
-[* Normalisiert den übergebenen Integer <x>. *]
-::= x.pos.<(x.neg).?(
-		then --> int(0, -C-(x.neg, x.pos)),
-		else --> int(-C-(x.pos, x.neg), 0));
-
-abs(x:Int):Card
-[* Gibt den Betrag von dem Integer <x> zurück. *]
-::= [normX --> x.normalizeInt]
-normX.pos.<(normX.neg).?(normX.neg, normX.pos);
+{A64 - Int}
 
 equals(x:Int, y:Int):Bool
 [* Gibt zurück, ob die ganze Zahl <x> den gleichen Wert hat wie 
@@ -41,5 +24,3 @@ normX.neg.>(normY.neg).||(normY.pos.>(normX.pos));
 <<< >=(x:Int, y:Int):Bool
 [* Gibt zurück, ob <x> größer gleich <y> ist. *]
 ::= x.<(y).!;
-
-
