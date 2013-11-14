@@ -7,31 +7,3 @@ int(4, 7).normalizeInt == int(0, 3)
 6.abs == 6
 int(12, 13).abs == 1
 int(25, 15).abs == 10
-
-int(9, 6).equals(int(3, 0)) == true
-3.equals(int(9, 6)) == true
-3.equals(int(4, 1)) == true
-3.equals(int(4, 0)) == false
-3.equals(3) == true
-3.equals(4) == false
-0.equals(int(0, 0)) == true
-
-6.<(4) == false
-4.<(6) == true
-6.<(6) == false
-6.<(int(3, 4)) == false
-int(3, 4).<(6) == true
-int(1, 1).<(int(1, 0)) == true
-0.<(int(1, 0)) == true
-
-int(3,2).<=(int(1,0)) == true
-int(0, 2).<=(0) == true
-int(5, 0).<=(5) == true
-6.<=(int(6,1)) == false
-0.<=(int(0,1)) == false
-0.<=(int(1,0)) == true
-
-int(1,4).>(int(0,3)) == false
-3.>(int(2,1)) == true
-6.>(int(2,4)) == false
-
