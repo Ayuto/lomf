@@ -1,0 +1,17 @@
+int(pos:Card, neg:Card):Int
+[**];
+
+Card <<< Int ::= int(x, 0);
+
+normalizeInt(x:Int):Int
+[**]
+::= x.pos.<(x.neg).?(
+		then --> int(0, x.neg.-C-(x.pos)),
+		else --> int(x.pos.-C-(x.neg), 0));
+
+abs(x:Int):Card
+[**]
+::= [normX --> x.normalizeInt]
+		normX.pos.<(normX.neg).?(
+		then --> normX.neg,
+		else --> normX.pos);
