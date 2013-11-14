@@ -1,0 +1,60 @@
+{A3}
+{A64 - Int}
+
++(summand1:Int):Int
+[* Addiert zu der ganzen Zahl <summand1> den Wert 1.
+** Ergebnis wird normalisiert. *]
+::= summand1.pos.+.int(summand1.neg).normalizeInt;
+
++(summand1:Int, summand2:Int):Int
+[* Addiert zu der ganzen Zahl <summand1> die ganze Zahl <summand2>.
+** Ergebnis wird normalisiert. *]
+::= summand1.pos.+(summand2.pos).int(summand1.neg.+(summand2.neg)).normalizeInt;
+
+-(minuend:Int):Int
+[* Subtrahiert von der ganzen Zahl <minuend> den Wert 1.
+** Ergebnis wird normalisiert. *]
+::= minuend.pos.int(minuend.neg.+).normalizeInt;
+
+-(minuend:Int,subtrahend:Int):Int
+[* Subtrahiert von der ganzen Zahl <minuend> die ganze Zahl <subtrahend>.
+** Das Ergebnis wird normalisiert. *]
+::= minuend.pos.+(subtrahend.neg).int(minuend.neg.+(subtrahend.pos)).normalizeInt;
+
+*(factor1:Int):Int
+[* Multipliziert die ganze Zahl <factor1> mit 2.
+** Ergebnis wird normalisiert. *]
+::= [fac1 --> factor1.normalizeInt]
+		fac1.pos.*.int(fac1.neg.*).normalizeInt;
+
+*(factor1:Int, factor2:Int):Int
+[* Multipliziert die ganze Zahl <factor1> mit der ganzen Zahl <factor2>.
+** Ergebnis wird normalisiert. *]
+::= [fac1 --> factor1.normalizeInt,
+		 fac2 --> factor2.normalizeInt]
+fac1.neg.>(0).&&(fac2.neg.>(0)).||(fac1.pos.>(0).&&(fac2.pos.>(0))).!.?(
+		then --> 0.int(max(fac1.pos.*(fac2.neg), fac1.neg.*(fac2.pos))),
+		else --> max(fac1.neg.*(fac2.neg), fac1.pos.*(fac2.pos)).int(0));
+
+/I/(dividend:Int):Int
+[* Division with remainder of parameter <dividend> and 2 as divisor *]
+::= [div --> dividend.normalizeInt]
+div.pos./C/.int(div.neg./C/);
+
+/I/(dividend:Int, divisor:Int):Int
+[* Division with remainder of parameters <dividend> and <divisor>
+** Produces an exception if second argument is zero *]
+::= [normDividend --> dividend.normalizeInt,
+		 normDivisor --> divisor.normalizeInt]
+divisor.=(0).?(§(), normDividend.pos.>(0).&&(normDivisor.pos.>(0)).?(
+		then --> normDividend.pos./C/(normDivisor.pos).int(0),
+		else --> normDividend.neg.>(0).&&(normDivisor.neg.>(0)).?(
+				then --> normDividend.neg./C/(normDivisor.neg).int(0),
+				else --> normDividend.pos.>(normDivisor.pos).?(
+						then --> 0.int(normDividend.pos./C/(normDivisor.neg)),
+						else --> 0.int(normDividend.neg./C/(normDivisor.pos))))));
+
+
+
+
+
