@@ -2,3 +2,5 @@
 "".caesarEncode(10) == ""
 "89+/".caesarEncode(3) == "/ABC"
 "!abc".caesarEncode(2) == §()
+"abc".caesarEncode(65) == "bcd"
+"abc".caesarEncode(64) == "abc"

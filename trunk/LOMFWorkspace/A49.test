@@ -1,6 +1,0 @@
-"abc123ABC".check == true
-"".check == true
-"%".check == false
-"987abc'".check == false
-"987abc&".check == false
-"&987abc".check == false

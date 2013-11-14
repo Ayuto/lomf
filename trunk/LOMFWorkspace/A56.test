@@ -5,3 +5,4 @@
 62.base64Character == 43.toCharacter
 63.base64Character == 47.toCharacter
 64.base64Character == §()
+65.base64Character == §()

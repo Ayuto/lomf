@@ -1,3 +1,10 @@
+"BCD".deShift("") == §()
 "BCD".deShift("B") == "ABC"
 "BCD".deShift("BB") == "ABC"
-"DDF".deShift("DC") == "ABC"
+"BCD".deShift("BBB") == "ABC"
+"BCD".deShift("BBBB") == "ABC"
+
+"".deShift("") == ""
+"".deShift("B") == ""
+
+"B".deShift("") == §()

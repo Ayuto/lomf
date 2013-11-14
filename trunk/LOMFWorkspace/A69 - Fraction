@@ -1,4 +1,19 @@
+{operators}
 {A64 - Int}
+{A66 - equals}
+{A22}
+
+min(x:Card, y:Card):Card
+[* Gibt den kleineren Parameter zurück. *]
+::= x.<(y).?(
+		then --> x,
+		else --> y);
 
 fraction(enum:Int, denom:Int):Fraction
 [* Stellt einen Bruch aus zwei ganzen Zahlen <enum> und <denom> dar. *];
+
+Int <<< Fraction ::= fraction(x, 1);
+
+normalizeFraction(x:Fraction) [x.denom.equals(0).!]:Fraction
+[* Normalisiert <x>. *]
+::= TODO  !!!;

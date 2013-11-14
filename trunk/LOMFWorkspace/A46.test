@@ -1,12 +1,4 @@
-"123".isStringCard() == true
-"12a".isStringCard() == false
-"".isStringCard() == true
-"123".stringToCard == 123
-"".stringToCard == 0
-"1".stringToCard == 1
-"2".stringToCard == 2
-"10".stringToCard == 10
-"11".stringToCard == 11
-"001".stringToCard == 1
-"1234567".stringToCard == 1234567
-"1a".stringToCard == §()
+"true".stringToBool == true
+"false".stringToBool == false
+"".stringToBool == §()
+"ohase".stringToBool == §()
