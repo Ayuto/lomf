@@ -1,0 +1,21 @@
+{A64 - Int}
+{A67 - IntOperators}
+{A18}
+{operators}
+
+<<< power(base:Int,exponent:Int):Int
+[* Gibt die Potenz <base> hoch <exponent> zurück.
+** 0**0 ist ein Fehler! *]
+::= [normBase  --> base.normalizeInt,
+		 normExponent --> exponent.normalizeInt]
+		[bPos --> normBase.pos,
+		 bNeg --> normBase.neg,
+		 ePos --> normExponent.pos,
+		 eNeg --> normExponent.neg]
+eNeg.>(0).?(
+		then --> 1./I/(power(normBase, eNeg.int(0))),
+		else --> bNeg.>(0).?(
+				then --> ePos.%(2).=(0).?(
+						then --> bNeg.xpower(ePos).int(0),
+						else --> 0.int(bNeg.xpower(ePos))),
+				else --> bPos.=(0).&&(ePos.=(0)).?(§(), bPos.xpower(ePos).int(0))));
