@@ -1,8 +1,8 @@
 {operators}
 
 int(pos:Card, neg:Card):Int
-[* Ganze Zahlen mit dem positiven Bestandteil <pos> und 
-** dem negativen Bestandteil <neg>. *];
+[* Stellt ganze Zahlen mit dem positiven Bestandteil <pos> und 
+** dem negativen Bestandteil <neg> dar. *];
 
 Card <<< Int ::= int(x, 0);
 
@@ -15,4 +15,4 @@ normalizeInt(x:Int):Int
 abs(x:Int):Card
 [* Gibt den Betrag von dem Integer <x> zurück. *]
 ::= [normX --> x.normalizeInt]
-normX.pos.<(normX.neg).?(normX.neg, normX.pos);
+		normX.pos.<(normX.neg).?(normX.neg, normX.pos);

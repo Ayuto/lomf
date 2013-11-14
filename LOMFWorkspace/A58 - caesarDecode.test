@@ -1,2 +1,6 @@
 "BCD".caesarDecode(1) == "ABC"
 "BCD".caesarDecode(65) == "ABC"
+"".caesarDecode(10) == ""
+"123&".caesarDecode(3) == §()
+"ABC".caesarDecode(3) == "9+/"
+"ABC".caesarDecode(0) == "ABC".caesarDecode(64)

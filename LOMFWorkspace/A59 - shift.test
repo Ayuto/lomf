@@ -1,4 +1,10 @@
+"ABC".shift("") == §()
 "ABC".shift("B") == "BCD"
 "ABC".shift("BB") == "BCD"
+"ABC".shift("BBB") == "BCD"
+"ABC".shift("BBBB") == "BCD"
 "AAA".shift("ABCD") == "ABC"
 "ABC".shift("DC") == "DDF"
+"&ABC".shift("AB") == §()
+"".shift("") == ""
+"".shift("AB") == ""

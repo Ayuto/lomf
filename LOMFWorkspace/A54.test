@@ -4,3 +4,4 @@
 "$ZHDNadasd91238".check == false
 "LHJLNasdd§s8912".check == false
 "kmak123(".check == false
+"abc".check == true
