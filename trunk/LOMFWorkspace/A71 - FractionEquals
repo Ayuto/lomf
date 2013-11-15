@@ -14,7 +14,7 @@ normX.enum.=(normY.enum).&&(normX.denom.=(normY.denom));
 ::= [normX --> x.normalizeFraction,
 		 normY --> y.normalizeFraction]
 		x.equals(0).||(y.equals(0)).?(
-		then --> normX.enum.<(0).||(normY.enum.<(0)),
+		then --> x.equals(0).&&(normY.enum.>(0)).||(y.equals(0).&&(normX.enum.>(0))),
 		else --> [kgv --> kgv(max(normX.denom.abs, normY.denom.abs), min(normX.denom.abs, normY.denom.abs))]
 						 normX.enum.*(kgv./I/(normX.denom)).<(normY.enum.*(kgv./I/(normY.denom))));
 
