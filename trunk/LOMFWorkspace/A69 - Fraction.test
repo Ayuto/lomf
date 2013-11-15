@@ -1,9 +1,15 @@
-fraction(int(0, 10), 5).normalizeFraction == int(0, 2)
 fraction(int(0, 10), 0).normalizeFraction == §()
+fraction(0, 0).normalizeFraction == §()
+
+fraction(int(0, 10), 5).normalizeFraction == int(0, 2)
 fraction(int(0, 10), int(0, 5)).normalizeFraction == 2
 fraction(int(10, 0), int(0, 5)).normalizeFraction == int(0, 2)
 fraction(int(10, 0), int(5, 0)).normalizeFraction == 2
+
 fraction(5, 10).normalizeFraction == fraction(1, 2)
 fraction(int(0, 5), int(0, 10)).normalizeFraction == fraction(1, 2)
 fraction(int(0, 5), int(10, 0)).normalizeFraction == fraction(int(0, 1), 2)
 fraction(5, int(0, 10)).normalizeFraction == fraction(int(0, 1), 2)
+
+fraction(0, 2).normalizeFraction == 0
+fraction(0, int(0, 2)).normalizeFraction == 0
