@@ -2,6 +2,7 @@
 {A64 - Int}
 {A66 - equals}
 {A22}
+{A67 - IntOperators}
 
 min(x:Card, y:Card):Card
 [* Gibt den kleineren Parameter zurück. *]
@@ -15,5 +16,8 @@ fraction(enum:Int, denom:Int):Fraction
 Int <<< Fraction ::= fraction(x, 1);
 
 normalizeFraction(x:Fraction) [x.denom.equals(0).!]:Fraction
-[* Normalisiert <x>. *]
-::= TODO  !!!;
+[* Normalisiert <x>. Das Vorzeichen steht immer im Zähler. *]
+::= [enum_abs --> x.enum.abs,
+		denom_abs --> x.denom.abs]
+		[y --> ggt(max(enum_abs, denom_abs), min(enum_abs, denom_abs))]
+		x.enum.<(0).!=(x.denom.<(0)).?(int(0, enum_abs./C/(y)), enum_abs./C/(y)).fraction(denom_abs./C/(y));

@@ -41,18 +41,18 @@ fac1.neg.>(0).&&(fac2.neg.>(0)).||(fac1.pos.>(0).&&(fac2.pos.>(0))).!.?(
 ::= [div --> dividend.normalizeInt]
 div.pos./C/.int(div.neg./C/);
 
-/I/(dividend:Int, divisor:Int):Int
+/I/(dividend:Int, divisor:Int) [divisor.equals(0).!]:Int
 [* Division with remainder of parameters <dividend> and <divisor>
 ** Produces an exception if second argument is zero *]
 ::= [normDividend --> dividend.normalizeInt,
 		 normDivisor --> divisor.normalizeInt]
-divisor.=(0).?(§(), normDividend.pos.>(0).&&(normDivisor.pos.>(0)).?(
+		normDividend.pos.>(0).&&(normDivisor.pos.>(0)).?(
 		then --> normDividend.pos./C/(normDivisor.pos).int(0),
 		else --> normDividend.neg.>(0).&&(normDivisor.neg.>(0)).?(
 				then --> normDividend.neg./C/(normDivisor.neg).int(0),
 				else --> normDividend.pos.>(normDivisor.pos).?(
 						then --> 0.int(normDividend.pos./C/(normDivisor.neg)),
-						else --> 0.int(normDividend.neg./C/(normDivisor.pos))))));
+						else --> 0.int(normDividend.neg./C/(normDivisor.pos)))));
 
 
 
