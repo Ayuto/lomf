@@ -1,0 +1,35 @@
+{A69 - Fraction}
+{A23}
+
+equals(x:Fraction, y:Fraction):Bool
+[* Gibt zurück, ob die Brüche <x> und <y> gleich sind.
+** Fehler, falls einer der Nenner 0 ist. *]
+::= [normX --> x.normalizeFraction,
+		 normY --> y.normalizeFraction]
+normX.enum.=(normY.enum).&&(normX.denom.=(normY.denom));
+
+<<< <(x:Fraction,y:Fraction):Bool
+[* Gibt zurück, ob der Bruch <x> (echt) kleiner als <y> ist.
+** Fehler, falls einer der Nenner 0 ist. *]
+::= [normX --> x.normalizeFraction,
+		 normY --> y.normalizeFraction]
+		x.equals(0).||(y.equals(0)).?(
+		then --> normX.enum.<(0).||(normY.enum.<(0)),
+		else --> [kgv --> kgv(max(normX.denom.abs, normY.denom.abs), min(normX.denom.abs, normY.denom.abs))]
+						 normX.enum.*(kgv./I/(normX.denom)).<(normY.enum.*(kgv./I/(normY.denom))));
+
+<<< <=(x:Fraction,y:Fraction):Bool
+[* Gibt zurück, ob der Bruch <x> kleiner gleich <y> ist.
+** Fehler, falls einer der Nenner 0 ist. *]
+::= x.equals(y).||(x.<(y));
+
+<<< >(x:Fraction,y:Fraction):Bool
+[* Gibt zurück, ob der Bruch <x> (echt) größer als <y> ist.
+** Fehler, falls einer der Nenner 0 ist. *]
+::= x.<=(y).!;
+
+<<< >=(x:Fraction,y:Fraction):Bool
+[* Gibt zurück, ob der Bruch <x> größer gleich <y> ist.
+** Fehler, falls einer der Nenner 0 ist. *]
+::= x.<(y).!;
+
