@@ -1,5 +1,6 @@
 {A3}
 {A64 - Int}
+{A66 - equals}
 
 +(summand1:Int):Int
 [* Addiert zu der ganzen Zahl <summand1> den Wert 1.
@@ -32,9 +33,9 @@
 ** Ergebnis wird normalisiert. *]
 ::= [fac1 --> factor1.normalizeInt,
 		 fac2 --> factor2.normalizeInt]
-fac1.neg.>(0).&&(fac2.neg.>(0)).||(fac1.pos.>(0).&&(fac2.pos.>(0))).!.?(
-		then --> 0.int(max(fac1.pos.*(fac2.neg), fac1.neg.*(fac2.pos))),
-		else --> max(fac1.neg.*(fac2.neg), fac1.pos.*(fac2.pos)).int(0));
+fac1.<(0).&&(fac2.<(0)).||(fac1.>=(0).&&(fac2.>=(0))).?(
+		then --> max(fac1.neg.*(fac2.neg), fac1.pos.*(fac2.pos)).int(0),
+		else --> 0.int(max(fac1.pos.*(fac2.neg), fac1.neg.*(fac2.pos))));
 
 /I/(dividend:Int):Int
 [* Division with remainder of parameter <dividend> and 2 as divisor *]
@@ -46,11 +47,11 @@ div.pos./C/.int(div.neg./C/);
 ** Produces an exception if second argument is zero *]
 ::= [normDividend --> dividend.normalizeInt,
 		 normDivisor --> divisor.normalizeInt]
-		normDividend.pos.>(0).&&(normDivisor.pos.>(0)).?(
+		normDividend.>(0).&&(normDivisor.>(0)).?(
 		then --> normDividend.pos./C/(normDivisor.pos).int(0),
-		else --> normDividend.neg.>(0).&&(normDivisor.neg.>(0)).?(
+		else --> normDividend.<(0).&&(normDivisor.<(0)).?(
 				then --> normDividend.neg./C/(normDivisor.neg).int(0),
-				else --> normDividend.pos.>(normDivisor.pos).?(
+				else --> normDividend.>(normDivisor).?(
 						then --> 0.int(normDividend.pos./C/(normDivisor.neg)),
 						else --> 0.int(normDividend.neg./C/(normDivisor.pos)))));
 
