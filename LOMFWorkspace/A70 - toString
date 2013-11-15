@@ -1,0 +1,9 @@
+{A69 - Fraction}
+{A65 - IntToString}
+
+SLASH:String [* / *] ::= "/";
+
+toString(x:Fraction):String
+[* Stellt <x> als String dar. *]
+::= [normX --> x.normalizeFraction]
+		normX.enum.toString.+S+(SLASH()).+S+(normX.denom.toString);

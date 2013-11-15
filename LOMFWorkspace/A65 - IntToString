@@ -1,6 +1,6 @@
-{Übungen\ganzeZahlen.lomf}
-{Übungen\toString}
-{Übungen\stringToCard.lomf}
+{A64 - Int}
+{A45}
+{A47}
 
 minus:String
 [* negatives Vorzeichen *]
@@ -10,7 +10,7 @@ toString(x:Int):String
 [* Gibt die ganze Zahl <x> als Zeichenkette mit einem entsprechenden
 ** Vorzeichen zurück. *]
 ::= [normX --> x.normalizeInt()]
-normX.pos.<(normX.neg).?(minus().+S+(normX.neg.cardToString), normX.pos.cardToString);
+normX.pos.<(normX.neg).?(minus().+S+(normX.neg.toString), normX.pos.toString);
 
 stringToInt(x:String):Int
 [* Konvertiert eine ganze Zahl (ggf. mit - Vorzeichen) in eine 

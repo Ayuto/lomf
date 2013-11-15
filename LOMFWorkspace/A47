@@ -5,10 +5,10 @@ isStringCard(x:String):Bool
 [* Überprüft, ob der String <x> zum Card umgewandelt werden kann. *]
 ::= x.=("").?(
 		then --> true,
-		else --> x._c.toCardinal.-C-(ASCII_0()).<(NUMBER_10()).&&(x.s_.isStringCard));
+		else --> x._c.toCardinal.-C-(ASCII_0()).<(DECIMAL_BASE()).&&(x.s_.isStringCard));
 
 stringToCard(x:String) [x.isStringCard()] :Card
 [* Wandelt den String <x> in eine Zahl um. Ein leerer String entspricht einer 0. *]
 ::= x.=("").?(
 		then --> 0,
-		else --> x.c_.toCardinal.-C-(ASCII_0()).+(x._s.stringToCard.*(NUMBER_10())));
+		else --> x.c_.toCardinal.-C-(ASCII_0()).+(x._s.stringToCard.*(DECIMAL_BASE())));
