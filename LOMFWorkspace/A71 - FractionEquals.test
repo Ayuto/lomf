@@ -1,0 +1,39 @@
+fraction(1, 2).equals(fraction(int(0, 5),int(0, 10))) == true
+fraction(int(0, 4),int(0, 2)).equals(2) == true
+fraction(15, 5).equals(3) == true
+fraction(int(0, 4), 8).equals(fraction(int(0, 1), 2)) == true
+0.equals(0) == true
+fraction(2, int(2, 6)).equals(fraction(1, 2)) == false
+fraction(2, int(2, 6)).equals(fraction(int(0, 1), 2)) == true
+
+fraction(6, int(0, 3)).<(fraction(1, 2)) == true
+4.<(fraction(8, int(0, 2))) == false
+fraction(7, 12).<(fraction(5, 11)) == false
+fraction(int(2, 9), int(15, 3)).<(fraction(int(9, 4), int(2, 13))) == true
+fraction(int(9, 2), int(15, 3)).<(fraction(int(9, 4), int(13, 2))) == false
+0.<(fraction(1, 5)) == true 
+0.<(fraction(1, int(0, 5))) == false
+
+fraction(6, int(0, 3)).<=(fraction(1, 2)) == true
+4.<=(fraction(8, int(2, 0))) == true
+fraction(7, 12).<=(fraction(5, 11)) == false
+fraction(int(2, 9), int(15, 3)).<=(fraction(int(9, 4), int(2, 13))) == true
+fraction(int(9, 2), int(15, 3)).<=(fraction(int(9, 4), int(13, 2))) == false
+0.<=(fraction(1, 5)) == true 
+0.<=(fraction(1, int(0, 5))) == false
+
+fraction(6, int(0, 3)).>(fraction(1, 2)) == false
+4.>(fraction(8, int(2, 0))) == false
+fraction(7, 12).>(fraction(5, 11)) == true
+fraction(int(2, 9), int(15, 3)).>(fraction(int(9, 4), int(2, 13))) == false
+fraction(int(9, 2), int(15, 3)).>(fraction(int(9, 4), int(13, 2))) == true
+0.>(fraction(1, 5)) == true 
+0.>(fraction(1, int(0, 5))) == false
+
+fraction(6, int(0, 3)).>=(fraction(1, 2)) == false
+4.>=(fraction(8, int(2, 0))) == true
+fraction(7, 12).>=(fraction(5, 11)) == true
+fraction(int(2, 9), int(15, 3)).>=(fraction(int(9, 4), int(2, 13))) == false
+fraction(int(9, 2), int(15, 3)).>=(fraction(int(9, 4), int(13, 2))) == true
+0.>=(fraction(1, 5)) == true 
+0.>=(fraction(1, int(0, 5))) == false
