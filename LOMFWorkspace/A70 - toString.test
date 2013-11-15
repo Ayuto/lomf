@@ -3,3 +3,13 @@ fraction(int(0, 5), int(10, 0)).toString == "-1/2"
 fraction(int(5, 0), int(0, 10)).toString == "-1/2"
 fraction(int(5, 0), int(10, 0)).toString == "1/2"
 fraction(0, 0).toString == §()
+
+"-8/-4".stringToFraction == 2
+"5/-10".stringToFraction == fraction(int(0, 1), 2)
+"-5/10".stringToFraction == fraction(int(0, 1), 2)
+"-5/-10".stringToFraction == fraction(1, 2)
+"5/10".stringToFraction == fraction(1, 2)
+"5/0".stringToFraction == §()
+
+
+
