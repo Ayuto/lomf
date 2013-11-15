@@ -1,9 +1,18 @@
 {A69 - Fraction}
 {A65 - IntToString}
+{A32}
+{A38}
+{A41}
 
-SLASH:String [* / *] ::= "/";
+SLASH:String [* Bruchstrich *] ::= "/";
 
 toString(x:Fraction):String
-[* Stellt <x> als String dar. *]
+[* Stellt <x> als String des normalisierten Bruches dar. *]
 ::= [normX --> x.normalizeFraction]
 		normX.enum.toString.+S+(SLASH()).+S+(normX.denom.toString);
+
+stringToFraction(x:String):Fraction
+[* Wandelt den String <x> in einen normalisierten Bruch um.
+** Fehler, wenn <x> kein gültiger String-Repräsentant eines Bruches ist. *]
+::= [slashPos --> x.firstIndexOf(SLASH())]
+		x.subString(0,slashPos).stringToInt.fraction(x.subString(slashPos.+, x.length).stringToInt).normalizeFraction;
