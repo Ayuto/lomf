@@ -1,0 +1,1 @@
+fraction(2, 3).*(fraction(3, 2)).normalizeFraction == 1

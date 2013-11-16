@@ -1,0 +1,11 @@
+{A69 - Fraction}
+
+<<< *(factor1:Fraction, factor2:Fraction):Fraction
+[* Multipliziert zwei Brüche. *]
+::= [fac1 --> factor1.normalizeFraction,
+		 fac2 --> factor2.normalizeFraction]
+		fraction(fac1.enum.*(fac2.enum), fac1.denom.*(fac2.denom));
+
+/F/(dividend:Fraction, divisor:Fraction):Fraction
+[* Dividiert zwei Brüche. *]
+::= dividend.*(fraction(divisor.denom, divisor.enum));
