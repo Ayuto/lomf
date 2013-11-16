@@ -1,0 +1,13 @@
+{A69 - Fraction}
+
+<<< +(summand1:Fraction, summand2:Fraction):Fraction
+[* Addiert zwei Brüche. *]
+::= [sum1 --> summand1.normalizeFraction,
+		 sum2 --> summand2.normalizeFraction]
+		fraction(sum1.enum.*(sum2.denom).+(sum2.enum.*(sum1.denom)), sum1.denom.*(sum2.denom));
+
+<<< -(minuend:Fraction, subtrahend:Fraction):Fraction
+[* Subtrahiert zwei Brüche. *]
+::= [minu --> minuend.normalizeFraction,
+		 subt --> subtrahend.normalizeFraction]
+		fraction(minu.enum.*(subt.denom).-(subt.enum.*(minu.denom)), minu.denom.*(subt.denom));
