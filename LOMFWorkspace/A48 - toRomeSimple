@@ -1,0 +1,79 @@
+{operators}
+
+maximumSize:Card
+[* Maximum size of card to convert into a roman numeral. *]
+::= 3000;
+
+romanMSize:Card
+[* Size of the roman numeral M *]
+::= 1000;
+
+romanDSize:Card
+[* Size of the roman numeral D *]
+::= 500;
+
+romanCSize:Card
+[* Size of the roman numeral C *]
+::= 100;
+
+romanLSize:Card
+[* Size of the roman numeral L *]
+::= 50;
+
+romanXSize:Card
+[* Size of the roman numeral X *]
+::= 10;
+
+romanVSize:Card
+[* Size of the roman numeral V *]
+::= 5;
+
+roman1000:String
+[* String representation of the roman 1000 *]
+::= "M";
+
+roman500:String
+[* String representation of the roman 500 *]
+::= "D";
+
+roman100:String
+[* String representation of the roman 100 *]
+::= "C";
+
+roman50:String
+[* String representation of the roman 50 *]
+::= "L";
+
+roman10:String
+[* String representation of the roman 10 *]
+::= "X";
+
+roman5:String
+[* String representation of the roman 5 *]
+::= "V";
+
+roman1:String
+[* String representation of the roman 1 *]
+::= "I";
+
+toRomeSimple(x:Card):String
+[* Converts a card into a string representation of the card <x> as a 
+** roman numeral without the subtraction.
+** Exception if card is higher then 3000! *]
+::= x.>(maximumSize()).?(
+		then --> §(),
+		else --> x./C/(romanMSize()).!=(0).?(
+				then --> roman1000().+S+(x.-C-(romanMSize()).toRomeSimple()),
+				else --> x./C/(romanDSize()).!=(0).?(
+						then --> roman500().+S+(x.-C-(romanDSize()).toRomeSimple()),
+						else --> x./C/(romanCSize()).!=(0).?(
+								then --> roman100().+S+(x.-C-(romanCSize()).toRomeSimple()),
+								else --> x./C/(romanLSize()).!=(0).?(
+										then --> roman50().+S+(x.-C-(romanLSize()).toRomeSimple()),
+										else --> x./C/(romanXSize()).!=(0).?(
+												then --> roman10().+S+(x.-C-(romanXSize()).toRomeSimple()),
+												else --> x./C/(romanVSize()).!=(0).?(
+														then --> roman5().+S+(x.-C-(romanVSize()).toRomeSimple()),
+														else --> x.!=(0).?(
+																then --> roman1().+S+(x.-C-.toRomeSimple()),
+																else --> ""))))))));
