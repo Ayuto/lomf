@@ -1,0 +1,13 @@
+fraction(int(2, 0), int(3, 0)).+(fraction(int(3, 0), int(2, 0))) == fraction(13, 6)
+fraction(int(2, 0), int(0, 3)).+(fraction(int(3, 0), int(2, 0))) == fraction(5, 6)
+fraction(int(2, 0), int(3, 0)).+(fraction(int(0, 3), int(2, 0))) == fraction(int(0, 5), 6)
+fraction(int(2, 0), int(3, 0)).+(fraction(int(3, 0), int(0, 2))) == fraction(int(0, 5), 6)
+fraction(int(0, 2), int(0, 3)).+(fraction(int(0, 3), int(0, 2))) == fraction(13, 6)
+fraction(int(0, 2), int(3, 0)).+(fraction(int(0, 3), int(2, 0))) == fraction(int(0, 13), 6)
+
+fraction(int(2, 0), int(3, 0)).-(fraction(int(3, 0), int(2, 0))) == fraction(int(0, 5), 6)
+fraction(int(2, 0), int(0, 3)).-(fraction(int(3, 0), int(2, 0))) == fraction(int(0, 13), 6)
+fraction(int(2, 0), int(3, 0)).-(fraction(int(0, 3), int(2, 0))) == fraction(13, 6)
+fraction(int(2, 0), int(3, 0)).-(fraction(int(3, 0), int(0, 2))) == fraction(13, 6)
+fraction(int(0, 2), int(0, 3)).-(fraction(int(0, 3), int(0, 2))) == fraction(int(0, 5), 6)
+fraction(int(0, 2), int(3, 0)).-(fraction(int(0, 3), int(2, 0))) == fraction(5, 6)
