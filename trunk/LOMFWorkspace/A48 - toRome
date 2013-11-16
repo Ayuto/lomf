@@ -1,0 +1,26 @@
+{A48 - toRomeSimple}
+{A42}
+{A41}
+{A38}
+{A32}
+
+ROMAN_4:String
+[* Repräsentant des Strings mit dem Inhalt der römischen Zahl 4. *]
+::= "IV";
+
+SIMPLE_ROMAN_4:String
+[* String mit der einfachen römischen 4 ohne Subtraktion. *]
+::= "IIII";
+
+LENGTH_SIMPLE_4:Card
+[* Länge des Strings der einfachen römischen 4 ohne Subtraktion. *]
+::= length(SIMPLE_ROMAN_4());
+
+toRome(x:Card):String
+[* Wandelt die eingegebene Zahl <x> in eine String Repräsentation
+** der römischen Zahlschrift um.
+** Fehler wenn <x> größer als 3000 ist. *]
+::= [str --> x.toRomeSimple] 
+		str.firstIndexOf(SIMPLE_ROMAN_4()).=(§()).?(
+		then --> str,
+		else --> str.subString(0,str.firstIndexOf(SIMPLE_ROMAN_4())).+S+(ROMAN_4()).+S+(str.subString(str.firstIndexOf(SIMPLE_ROMAN_4()).+(LENGTH_SIMPLE_4()),str.length)));
