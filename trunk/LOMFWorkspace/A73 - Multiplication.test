@@ -20,3 +20,33 @@ fraction(int(0,2), 3).*(fraction(3, 2)).normalizeFraction == int(0,1)
 fraction(2, 3).*(fraction(3, int(0,2))).normalizeFraction == int(0,1)
 fraction(2, int(0,3)).*(fraction(3, 2)).normalizeFraction == int(0,1)
 fraction(2, 3).*(fraction(int(0,3), 2)).normalizeFraction == int(0,1)
+
+fraction(int(0,3), 2).*(fraction(3, 2)).normalizeFraction == fraction(int(0,9), 4)
+fraction(3, 2).*(fraction(3, int(0,2))).normalizeFraction == fraction(int(0,9), 4)
+fraction(3, int(0,2)).*(fraction(3, 2)).normalizeFraction == fraction(int(0,9), 4)
+fraction(3, 2).*(fraction(int(0,3), 2)).normalizeFraction == fraction(int(0,9), 4)
+
+
+
+
+fraction(0, 3)./F/(fraction(3, 0)).normalizeFraction == 0
+fraction(0, 3)./F/(fraction(0, 2)).normalizeFraction == §()
+fraction(2, 0)./F/(fraction(3, 0)).normalizeFraction == §()
+fraction(2, 0)./F/(fraction(0, 2)).normalizeFraction == §()
+fraction(0, 0)./F/(fraction(0, 0)).normalizeFraction == §()
+
+fraction(2, 3)./F/(fraction(3, 2)).normalizeFraction == fraction(4, 9)
+fraction(2, 3)./F/(fraction(2, 3)).normalizeFraction == 1
+fraction(3, 2)./F/(fraction(3, 2)).normalizeFraction == 1
+fraction(3, 2)./F/(fraction(2, 3)).normalizeFraction == fraction(9, 4)
+
+fraction(int(0,2), 3)./F/(fraction(int(0,3), 2)).normalizeFraction == fraction(4, 9)
+fraction(int(0,2), 3)./F/(fraction(2, int(0,3))).normalizeFraction == 1
+fraction(3, int(0,2))./F/(fraction(int(0,3), 2)).normalizeFraction == 1
+fraction(3, int(0,2))./F/(fraction(2, int(0,3))).normalizeFraction == fraction(9, 4)
+
+fraction(int(0,2), int(0,3))./F/(fraction(int(0,3), int(0,2))).normalizeFraction == fraction(4, 9)
+fraction(int(0,2), 3)./F/(fraction(3, 2)).normalizeFraction == fraction(int(0,4), 9)
+fraction(2, 3)./F/(fraction(3, int(0,2))).normalizeFraction == fraction(int(0,4), 9)
+fraction(2, int(0,3))./F/(fraction(3, 2)).normalizeFraction == fraction(int(0,4), 9)
+fraction(2, 3)./F/(fraction(int(0,3), 2)).normalizeFraction == fraction(int(0,4), 9)
