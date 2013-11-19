@@ -1,4 +1,5 @@
 /* römische Zahlen */
+0.toRomeSimple == ""
 1.toRomeSimple == "I"
 2.toRomeSimple == "II"
 3.toRomeSimple == "III"
