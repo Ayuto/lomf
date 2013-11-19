@@ -25,3 +25,14 @@
 44.toRome == "XLIV"
 49.toRome == "XLIX"
 50.toRome == "L"
+2013.toRome == "MMXIII"
+3000.toRome == "MMM"
+3001.toRome == §()
+
+1.toRome == "I"
+5.toRome == "V"
+10.toRome == "X"
+50.toRome == "L"
+100.toRome == "C"
+500.toRome == "D"
+1000.toRome == "M"
