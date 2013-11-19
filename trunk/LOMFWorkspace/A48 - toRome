@@ -1,26 +1,53 @@
-{A48 - toRomeSimple}
-{A42}
-{A41}
-{A38}
-{A32}
+{operators}
 
-ROMAN_4:String
-[* Repräsentant des Strings mit dem Inhalt der römischen Zahl 4. *]
-::= "IV";
+I:String[* 1 in rome *]::= "I";
+V:String[* 5 in rome *]::= "V";
+X:String[* 10 in rome *]::= "X";
+L:String[* 50 in rome *]::= "L";
+C:String[* 100 in rome *]::= "C";
+D:String[* 500 in rome *]::= "D";
+M:String[* 1000 in rome *]::= "M";
 
-SIMPLE_ROMAN_4:String
-[* String mit der einfachen römischen 4 ohne Subtraktion. *]
-::= "IIII";
+IV:String[* 4 in rome *]::= I().+S+(V());
+IX:String[* 9 in rome *]::= I().+S+(X());
+XL:String[* 40 in rome *]::= X().+S+(L());
+XC:String[* 90 in rome *]::= X().+S+(C());
+CD:String[* 400 in rome *]::= C().+S+(D());
+CM:String[* 900 in rome *]::= C().+S+(M());
 
-LENGTH_SIMPLE_4:Card
-[* Länge des Strings der einfachen römischen 4 ohne Subtraktion. *]
-::= length(SIMPLE_ROMAN_4());
+i:Card[* value of rome I *]::= 1;
+iv:Card[* value of rome IV *]::= 4;
+v:Card[* value of rome V *]::= 5;
+ix:Card[* value of rome IX *]::= 9;
+x:Card[* value of rome X *]::= 10;
+xl:Card[* value of rome XL *]::= 40;
+l:Card[* value of rome L *]::= 50;
+xc:Card[* value of rome XC *]::= 90;
+c:Card[* value of rome C *]::= 100;
+cd:Card[* value of rome CD *]::= 400;
+d:Card[* value of rome D *]::= 500;
+cm:Card[* value of rome CM *]::= 900;
+m:Card[* value of rome M *]::= 1000;
 
-toRome(x:Card):String
-[* Wandelt die eingegebene Zahl <x> in eine String Repräsentation
-** der römischen Zahlschrift um.
-** Fehler wenn <x> größer als 3000 ist. *]
-::= [str --> x.toRomeSimple] 
-		str.firstIndexOf(SIMPLE_ROMAN_4()).=(§()).?(
-		then --> str,
-		else --> str.subString(0,str.firstIndexOf(SIMPLE_ROMAN_4())).+S+(ROMAN_4()).+S+(str.subString(str.firstIndexOf(SIMPLE_ROMAN_4()).+(LENGTH_SIMPLE_4()),str.length)));
+maxValue:Card[* maximal value for function toRome() *]::= 3000;
+
+toRome(a:Card)[a.<=(maxValue())]:String
+[* Wandelt die eingegebene Zahl <x> in einen String um, 
+** der die Zahl in römischer Schreibweise darstellt.
+** 0.toRome() == ""! 
+** Fehler, wenn die Eingabe größer als 3000 ist. *]
+::= 
+a.>=(m()).?(M().+S+(a.-C-(m()).toRome),
+a.>=(cm()).?(CM().+S+(a.-C-(cm()).toRome),
+a.>=(d()).?(D().+S+(a.-C-(d()).toRome),
+a.>=(cd()).?(CD().+S+(a.-C-(cd()).toRome),
+a.>=(c()).?(C().+S+(a.-C-(c()).toRome),
+a.>=(xc()).?(XC().+S+(a.-C-(xc()).toRome),
+a.>=(l()).?(L().+S+(a.-C-(l()).toRome),
+a.>=(xl()).?(XL().+S+(a.-C-(xl()).toRome),
+a.>=(x()).?(X().+S+(a.-C-(x()).toRome),
+a.>=(ix()).?(IX().+S+(a.-C-(ix()).toRome),
+a.>=(v()).?(V().+S+(a.-C-(v()).toRome),
+a.>=(iv()).?(IV().+S+(a.-C-(iv()).toRome),
+a.>=(i()).?(I().+S+(a.-C-(i()).toRome),"")
+))))))))))));
