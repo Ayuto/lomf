@@ -1,0 +1,32 @@
+{A69 - Fraction}
+
+eur:EUR [* Euro *];
+euro:String [* textuelle Repräsentation von eur. *] ::= "EURO";
+gbp:GBP [* Britisches Pfund *];
+pfund:String [* textuelle Repräsentation von gbp *] ::= "Britishes Pfund";
+usd:USD [* US Dollar *];
+dollar:String [* textuelle Repräsentation von usd *] ::= "US Dollar";
+
+EUR ++ GBP ++ USD : Currency[* Datentyp der Währungen. *];
+
+cash(amount:Fraction, currency:Currency):Cash
+[* Geldbetrag als Produkt des Betrags <amount>
+**  und der Währung <currency>. *];
+
+toString(currency:Currency):String
+[* Wandelt eine Währung in eine textuelle Repräsentation um. *]=::;
+toString(---currency:EUR):String::= "Euro";
+toString(---currency:GBP):String::= "Britishes Pfund";
+toString(---currency:USD):String::= "US Dollar";
+
+stringToCurrency(str:String):Currency
+[* Wandelt eine textuelle Repräsentation in eine Währung um. 
+** Fehler, wenn es sich um einen ungültigen String handelt. *]
+::= 
+str.=(euro()).?(eur(),
+str.=(pfund()).?(gbp(),
+str.=(dollar()).?(usd(),
+§())));
+
+
+
