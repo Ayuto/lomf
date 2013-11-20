@@ -38,3 +38,7 @@ fraction(int(9, 2), int(15, 3)).>=(fraction(int(9, 4), int(13, 2))) == true
 0.>=(fraction(0, int(2, 5))) == true
 0.>=(fraction(1, 5)) == false
 0.>=(fraction(1, int(0, 5))) == true
+
+fraction(1, 1).<(0) == false
+fraction(1, 1).>(0) == true
+fraction(1, 1).equals(0) == false

@@ -1,6 +1,8 @@
+harmony(0) == 1
 harmony(1) == 2
 harmony(2) == 4
 harmony(3) == 11
 harmony(4) == 31
 harmony(5) == 83
 harmony(6) == 227
+harmony(7) == 616
