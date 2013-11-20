@@ -1,0 +1,9 @@
+{A69 - Fraction}
+{A68 - IntPower}
+
+<<<power(base:Fraction, exponent:Int):Fraction
+[* Potenziert <base> mit <exponent>. *]
+::= [norm --> base.normalizeFraction]
+		exponent.<(0).?(
+		then --> fraction(norm.denom, norm.enum).power(exponent.abs),
+		else --> fraction(norm.enum.power(exponent), norm.denom.power(exponent)));
