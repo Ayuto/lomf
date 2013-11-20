@@ -27,6 +27,3 @@ str.=(euro()).?(eur(),
 str.=(pfund()).?(gbp(),
 str.=(dollar()).?(usd(),
 §())));
-
-
-

@@ -1,0 +1,31 @@
+{A90 - Currency}
+{A69 - Fraction}
+{A73 - Multiplication}
+{A70 - toString}
+
+USD_TO_EUR:Fraction [* Wechselkurs von USD zu EUR. *] ::= fraction(13528, 10000);
+USD_TO_GBP:Fraction [* Wechselkurs von USD zu GBP. *] ::= fraction(6186, 10000);
+
+conversionRate(---from:Currency, ---to:Currency):Fraction [* Wechselkurs *] ::= 1;
+>>>conversionRate(---from:EUR, ---to:GBP):Fraction
+::= conversionRate(eur(), usd()).*(conversionRate(usd(), gbp()));
+
+>>>conversionRate(---from:EUR, ---to:USD):Fraction
+::= fraction(USD_TO_EUR().denom, USD_TO_EUR().enum);
+
+>>>conversionRate(---from:GBP, ---to:EUR):Fraction
+::= conversionRate(gbp(), usd()).*(conversionRate(usd(), eur()));
+
+>>>conversionRate(---from:GBP, ---to:USD):Fraction
+::= fraction(USD_TO_GBP().denom, USD_TO_GBP().enum);
+
+>>>conversionRate(---from:USD, ---to:EUR):Fraction
+::= USD_TO_EUR();
+
+>>>conversionRate(---from:USD, ---to:GBP):Fraction
+::= USD_TO_GBP();
+
+convert(money:Cash, cur:Currency):String
+[* Konvertiert das Geld <money> in die Währung <cur>
+** und stellt das Ergebnis als String dar. *]
+::= money.amount.*(conversionRate(money.currency, cur)).toString.+S+(cur.toString);
