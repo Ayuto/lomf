@@ -1,0 +1,17 @@
+{A69 - Fraction}
+{A72 - Addition}
+{A67 - IntOperators}{A71 - FractionEquals}
+
+harmony(m:Card):Card
+[* Berechnet das kleinste n aus Card, für das
+** 1/1 + 1/2 + ... 1/n größer wird als m. *]
+::= harmonyHelper(0, 1, m);
+
+harmonyHelper(prev:Fraction, n:Card, m:Card):Card
+[* Berechnet das kleinste n aus Card, für das
+** 1/n + 1/(n+1) + ... größer wird als m. <prev> ist
+**  die Summe aller Vorgänger ab <n>. *]
+::= [current --> fraction(1, n).+(prev)]
+		current.<=(m).?(
+		then --> harmonyHelper(current, n.+, m),
+		else --> n);
