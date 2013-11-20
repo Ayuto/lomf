@@ -1,0 +1,48 @@
+True:True[* Wahrheitswert wahr *];
+False:False[* Wahrheitswert falsch *];
+
+True ++ False : Boolean [* Datentyp der Wahrheitswerte *];
+
+!(b:Boolean):Boolean
+[* Negation des Booleans <b>. *]=::;
+!(---b:True):Boolean::= False();
+!(---b:False):Boolean::= True();
+
+&(b1:Boolean, b2:Boolean):Boolean
+[* UND Verknüpfung der zwei Booleans <b1> und <b2>. *]=::;
+&(---b1:False,---b2:Boolean):Boolean::= False();
+&(---b1:Boolean,---b2:False):Boolean::= False();
+&(---b1:False,---b2:False):Boolean::= False();
+&(---b1:True,---b2:True):Boolean::= True();
+
+|(b1:Boolean, b2:Boolean):Boolean
+[* ODER Verknüpfung der zwei Booleans <b1> und <b2>. *]=::;
+|(---b1:True,---b2:Boolean):Boolean::= True();
+|(---b1:Boolean,---b2:True):Boolean::= True();
+|(---b1:True,---b2:True):Boolean::= True();
+|(---b1:False,---b2:False):Boolean::= False();
+
+<=>(b1:Boolean, b2:Boolean):Boolean
+[* Äquivalenzverknüpfung der zwei Booleans <b1> und <b2>. *]=::;
+<=>(---b1:True,---b2:True):Boolean::= True();
+<=>(---b1:False,---b2:False):Boolean::= True();
+<=>(---b1:True,---b2:False):Boolean::= False();
+<=>(---b1:False,---b2:True):Boolean::= False();
+
+!=(b1:Boolean, b2:Boolean):Boolean
+[* Exklusiv-ODER Verknüpfung der zwei Booleans <b1> und <b2>. *]=::;
+!=(---b1:True,---b2:True):Boolean::= False();
+!=(---b1:False,---b2:False):Boolean::= False();
+!=(---b1:True,---b2:False):Boolean::= True();
+!=(---b1:False,---b2:True):Boolean::= True();
+
+=>(b1:Boolean, b2:Boolean):Boolean
+[* Implikationverknüpfung der zwei Booleans <b1> und <b2>. *]=::;
+=>(---b1:False,---b2:Boolean):Boolean::= True();
+=>(---b1:True,b2:Boolean):Boolean::= b2;
+
+
+
+
+
+

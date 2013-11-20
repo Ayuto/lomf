@@ -1,0 +1,9 @@
+toString(eur()) == "Euro"
+toString(gbp()) == "Britishes Pfund"
+toString(usd()) == "US Dollar"
+
+
+stringToCurrency("EURO") == eur()
+stringToCurrency("Britishes Pfund") == gbp()
+stringToCurrency("US Dollar") == usd()
+stringToCurrency("hallo") == §()
