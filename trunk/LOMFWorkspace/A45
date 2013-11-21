@@ -3,21 +3,21 @@
 TRUE:String [* String Repräsentant für den Wahrheitswert "true" *] ::= "true";
 FALSE:String [* String Repräsentant für den Wahrheitswert "false" *] ::= "false";
 ASCII_0:Card [* Gibt den ASCII Wert von 0 zurück. *] ::= 48;
-DECIMAL_BASE:Card [* Gibt Basis des Dezimalsystems zurück. *] ::= 10;
+DECIMAL_BASE:Card [*  Gibt Basis des Dezimalsystems zurück. *] ::= 10;
 
-toString(x:Bool):String
+boolToString(x:Bool):String
 [* Wandelt den Wahrheitswert <x> in einen String um. *]
 ::= x.?(
 		then --> TRUE(),
 		else --> FALSE());
 
-toString(x:Character):String
+characterToString(x:Character):String
 [* Wandelt den Character <x> in einen String um. *]
 ::= x.+S+("");
 
-toString(x:Card):String
+cardToString(x:Card):String
 [* Wandelt eine Zahl <x> in einen String um. *]
 ::= [char --> x.%(DECIMAL_BASE()).+(ASCII_0()).toCharacter]
 		x.<(DECIMAL_BASE()).?(
 		then --> char.+S+(""),
-		else --> toString(x./C/(DECIMAL_BASE())).+S+(char));
+		else --> cardToString(x./C/(DECIMAL_BASE())).+S+(char));

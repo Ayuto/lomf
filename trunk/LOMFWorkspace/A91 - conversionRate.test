@@ -1,0 +1,10 @@
+convert(cash(560, usd()), gbp()) == "43302/125 Britishes Pfund"
+convert(cash(200, usd()), eur()) == "6764/25 Euro"
+convert(cash(200, eur()), usd()) == "250000/1691 US Dollar"
+convert(cash(200, eur()), gbp()) == "154650/1691 Britishes Pfund"
+convert(cash(200, gbp()), usd()) == "1000000/3093 US Dollar"
+convert(cash(200, gbp()), eur()) == "1352800/3093 Euro"
+
+
+ 
+

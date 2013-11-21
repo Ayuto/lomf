@@ -1,8 +1,8 @@
-int(9, 6).toString == "3"
-int(3, 9).toString == "-6"
-int(0, 0).toString == "0"
-int(1, 0).toString == "1"
-int(0, 1).toString == "-1"
+int(9, 6).intToString == "3"
+int(3, 9).intToString == "-6"
+int(0, 0).intToString == "0"
+int(1, 0).intToString == "1"
+int(0, 1).intToString == "-1"
 
 "3".stringToInt == int(3, 0)
 "-6".stringToInt == int(0, 6)

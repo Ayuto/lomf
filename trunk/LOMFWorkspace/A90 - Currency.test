@@ -1,6 +1,6 @@
-toString(eur()) == "Euro"
-toString(gbp()) == "Britishes Pfund"
-toString(usd()) == "US Dollar"
+currencyToString(eur()) == "Euro"
+currencyToString(gbp()) == "Britishes Pfund"
+currencyToString(usd()) == "US Dollar"
 
 
 stringToCurrency("EURO") == eur()

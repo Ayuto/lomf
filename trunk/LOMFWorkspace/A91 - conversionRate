@@ -6,7 +6,11 @@
 USD_TO_EUR:Fraction [* Wechselkurs von USD zu EUR. *] ::= fraction(13528, 10000);
 USD_TO_GBP:Fraction [* Wechselkurs von USD zu GBP. *] ::= fraction(6186, 10000);
 
+SPACE:String [* Ein Leerzeichen. *] ::= " ";
+
+
 conversionRate(---from:Currency, ---to:Currency):Fraction [* Wechselkurs *] ::= 1;
+
 >>>conversionRate(---from:EUR, ---to:GBP):Fraction
 ::= conversionRate(eur(), usd()).*(conversionRate(usd(), gbp()));
 
@@ -25,7 +29,13 @@ conversionRate(---from:Currency, ---to:Currency):Fraction [* Wechselkurs *] ::= 
 >>>conversionRate(---from:USD, ---to:GBP):Fraction
 ::= USD_TO_GBP();
 
+
 convert(money:Cash, cur:Currency):String
-[* Konvertiert das Geld <money> in die Währung <cur>
-** und stellt das Ergebnis als String dar. *]
-::= money.amount.*(conversionRate(money.currency, cur)).toString.+S+(cur.toString);
+[* Konvertiert das Geld <money> in die Währung <cur> und 
+** stellt das Ergebnis als String dar. *]
+::= money.amount.*(conversionRate(money.currency, cur)).fractionToString.+S+(SPACE()).+S+(cur.currencyToString);
+
+
+less(cash1:Cash, cash2:Cash):Bool
+[* Überprüft, ob <cash1> weniger wert ist als <cash2>. *]
+::= TODO  !!!;

@@ -3,14 +3,14 @@
 {A47}
 
 minus:String
-[* negatives Vorzeichen *]
+[* Negatives Vorzeichen *]
 ::= "-";
 
-toString(x:Int):String
+intToString(x:Int):String
 [* Gibt die ganze Zahl <x> als Zeichenkette mit einem entsprechenden
 ** Vorzeichen zurück. *]
 ::= [normX --> x.normalizeInt()]
-normX.pos.<(normX.neg).?(minus().+S+(normX.neg.toString), normX.pos.toString);
+normX.pos.<(normX.neg).?(minus().+S+(normX.neg.cardToString), normX.pos.cardToString);
 
 stringToInt(x:String):Int
 [* Konvertiert eine ganze Zahl (ggf. mit - Vorzeichen) in eine 
