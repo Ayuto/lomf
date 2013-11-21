@@ -6,10 +6,10 @@
 
 SLASH:String [* Bruchstrich *] ::= "/";
 
-toString(x:Fraction):String
+fractionToString(x:Fraction):String
 [* Stellt <x> als String des normalisierten Bruches dar. *]
 ::= [normX --> x.normalizeFraction]
-		normX.enum.toString.+S+(SLASH()).+S+(normX.denom.toString);
+		normX.enum.intToString.+S+(SLASH()).+S+(normX.denom.intToString);
 
 stringToFraction(x:String):Fraction
 [* Wandelt den String <x> in einen normalisierten Bruch um.
