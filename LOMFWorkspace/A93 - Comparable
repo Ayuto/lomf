@@ -1,0 +1,34 @@
+{A64 - Int}
+{A69 - Fraction}
+{A71 - FractionEquals}
+{A44}
+{A90 - Currency}
+{A91 - conversionRate}
+
+: Comparable [* Abstrakter Datentyp dessen Elemente vergleichbar sind. *];
+
+lessEq(x:Comparable, y:Comparable):Bool
+[* Gibt zurück, ob <x> kleiner oder gleich <y> ist. *] =::;
+>>>lessEq(---x:Nothing,---y:Nothing):Bool::= true;
+
+Fraction <<< Comparable;
+String <<< Comparable;
+Bool <<< Comparable;
+Cash <<< Comparable;
+
+>>>lessEq(x:Fraction, y:Fraction):Bool::= x.<=(y);
+>>>lessEq(---x:Fraction, ---y:String):Bool::= true;
+>>>lessEq(---x:String, ---y:Fraction):Bool::= false;
+>>>lessEq(x:String, y:String):Bool::= x.less(y);
+>>>lessEq(---x:Bool,---y:Fraction ++ String):Bool::= true;
+>>>lessEq(---x:Fraction ++ String,---y:Bool):Bool::= false;
+>>>lessEq(x:Bool,y:Bool):Bool::= x.||(y.!);
+>>>lessEq(---x:Cash,---y:Bool ++ String ++ Fraction):Bool::= false;
+>>>lessEq(---x:Bool ++ String ++ Fraction,---y:Cash):Bool::= true;
+>>>lessEq(x:Cash,y:Cash):Bool::= y.lessCash(x).!;
+
+
+
+
+
+
