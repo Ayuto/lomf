@@ -1,0 +1,34 @@
+{A90 - Currency}
+{A91 - conversionRate}
+
+trl:TRL [* Türkische Lira *];
+trlira:String [* textuelle Repräsentation von trl. *] ::= "Türkische Lira";
+
+TRL <<< Currency;
+
+USD_TO_TRL:Fraction [* Wechselkurs von USD zu TRL. *] ::= fraction(4953, 10000);
+
+>>>currencyToString(---currency:TRL):String::= trlira();
+
+>>>conversionRate(---from:TRL,---to:USD):Fraction
+::= fraction(USD_TO_TRL().denom, USD_TO_TRL().enum);
+
+>>>conversionRate(---from:USD,---to:TRL):Fraction
+::= USD_TO_TRL();
+
+>>>conversionRate(---from:TRL,---to:EUR):Fraction
+::= conversionRate(trl(), usd()).*(conversionRate(usd(), eur()));
+
+>>>conversionRate(---from:TRL,---to:GBP):Fraction
+::= conversionRate(trl(), usd()).*(conversionRate(usd(), gbp()));
+
+>>>conversionRate(---from:EUR,---to:TRL):Fraction
+::= conversionRate(eur(), usd()).*(conversionRate(usd(), trl()));
+
+>>>conversionRate(---from:GBP,---to:TRL):Fraction
+::= conversionRate(gbp(), usd()).*(conversionRate(usd(), trl()));
+
+
+
+
+
