@@ -34,7 +34,7 @@ conversionRate(---from:Currency, ---to:Currency):Fraction [* Wechselkurs *] ::= 
 convert(money:Cash, cur:Currency):String
 [* Konvertiert das Geld <money> in die Währung <cur> und 
 ** stellt das Ergebnis als String dar. *]
-::= money.amount.*(conversionRate(money.currency, cur)).fractionToString.+S+(SPACE()).+S+(cur.currencyToString);
+::= money.amount.*(conversionRate(money.currency, cur)).normalizeFraction.fractionToString.+S+(SPACE()).+S+(cur.currencyToString);
 
 
 less(cash1:Cash, cash2:Cash):Bool

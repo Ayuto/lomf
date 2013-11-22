@@ -1,0 +1,10 @@
+convert(cash(5, trl()), usd())== "50000/4953 US Dollar"
+convert(cash(10, trl()), eur())== "135280/4953 Euro"
+convert(cash(10, trl()), gbp())== "20620/1651 Britishes Pfund"
+convert(cash(5, usd()), trl())== "4953/2000 Türkische Lira"
+convert(cash(10, eur()), trl())== "24765/6764 Türkische Lira"
+convert(cash(10, gbp()), trl())== "8255/1031 Türkische Lira"
+
+
+
+
