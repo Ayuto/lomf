@@ -1,0 +1,7 @@
+15.notEmptyList(emptyList())==notEmptyList(rest-->emptyList(),
+             																first-->15)
+
+25.notEmptyList(20.notEmptyList(15.notEmptyList(emptyList())))._C == 25
+25.notEmptyList(20.notEmptyList(15.notEmptyList(emptyList()))).C_ == 15
+25.notEmptyList(20.notEmptyList(15.notEmptyList(emptyList()))).S_ == 20.notEmptyList(15.notEmptyList(emptyList()))
+25.notEmptyList(20.notEmptyList(15.notEmptyList(emptyList())))._S == 25.notEmptyList(20.notEmptyList(emptyList()))
