@@ -1,0 +1,32 @@
+{A93 - Comparable}
+
+emptyList:EmptyList [* eine leere Liste *];
+notEmptyList(first:Comparable, rest:List):NotEmptyList [* eine nicht leere Liste. *];
+
+EmptyList ++ NotEmptyList : List [* Abstrakter Datentyp für alle Listen. *];
+
+_C(x:List):Comparable
+[* Gibt das erste Element aus der Liste <x> zurück.
+** Fehler, wenn <x> die leere Liste ist. *]
+::= x.asNotEmptyList.first;
+
+S_(x:List):List
+[* Gibt die Liste <x> ohne das erste Element zurück.
+** Fehler, wenn <x> die leere Liste ist. *]
+::= x.asNotEmptyList.rest;
+
+C_(x:List):Comparable
+[* Gibt das letzte Element der Liste <x> zurück.
+** Fehler, wenn <x> die leere Liste ist. *]
+::= [list --> x.asNotEmptyList]
+list.rest.=(emptyList()).?(list.first, C_(list.rest));
+
+_S(x:List):List
+[* Gibt die Liste <x> ohne das letzte Element zurück.
+** Fehler, wenn <x> die leere Liste ist. *]
+::= [list --> x.asNotEmptyList] 
+list.rest.=(emptyList()).?(
+		then --> emptyList(),
+		else --> notEmptyList(list.first, _S(list.rest)));
+
+
