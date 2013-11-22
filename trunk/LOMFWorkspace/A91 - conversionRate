@@ -37,6 +37,6 @@ convert(money:Cash, cur:Currency):String
 ::= money.amount.*(conversionRate(money.currency, cur)).normalizeFraction.fractionToString.+S+(SPACE()).+S+(cur.currencyToString);
 
 
-less(cash1:Cash, cash2:Cash):Bool
+lessCash(cash1:Cash, cash2:Cash):Bool
 [* Überprüft, ob <cash1> weniger wert ist als <cash2>. *]
 ::= cash1.amount.*(conversionRate(cash1.currency, usd())).<(cash2.amount.*(conversionRate(cash2.currency, usd())));
