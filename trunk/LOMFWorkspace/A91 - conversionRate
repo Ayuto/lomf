@@ -2,6 +2,7 @@
 {A69 - Fraction}
 {A73 - Multiplication}
 {A70 - toString}
+{A71 - FractionEquals}
 
 USD_TO_EUR:Fraction [* Wechselkurs von USD zu EUR. *] ::= fraction(13528, 10000);
 USD_TO_GBP:Fraction [* Wechselkurs von USD zu GBP. *] ::= fraction(6186, 10000);
@@ -38,4 +39,4 @@ convert(money:Cash, cur:Currency):String
 
 less(cash1:Cash, cash2:Cash):Bool
 [* Überprüft, ob <cash1> weniger wert ist als <cash2>. *]
-::= TODO  !!!;
+::= cash1.amount.*(conversionRate(cash1.currency, usd())).<(cash2.amount.*(conversionRate(cash2.currency, usd())));
