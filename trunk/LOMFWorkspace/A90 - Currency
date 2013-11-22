@@ -7,7 +7,10 @@ pfund:String [* textuelle Repräsentation von gbp *] ::= "Britishes Pfund";
 usd:USD [* US Dollar *];
 dollar:String [* textuelle Repräsentation von usd *] ::= "US Dollar";
 
-EUR ++ GBP ++ USD : Currency[* Datentyp der Währungen. *];
+:Currency[* Datentyp der Währungen. *];
+EUR <<< Currency;
+GBP <<< Currency;
+USD <<< Currency;
 
 cash(amount:Fraction, currency:Currency):Cash
 [* Geldbetrag als Produkt des Betrags <amount>
