@@ -1,0 +1,38 @@
+{A94 - List}
+
+COMMA:String [* Komma *] ::= ",";
+
+comparableToString(x:Comparable):String 
+[* Generische Funktion, die eine Stringrepräsentation eines Comparables liefert. *] =::;
+>>>comparableToString(x:Bool):String::= x.boolToString;
+>>>comparableToString(x:Fraction):String::= x.fractionToString;
+>>>comparableToString(x:String):String::= x;
+
+isEmpty(list:List):Bool 
+[* Gibt genau dann true zurück, wenn <list> leer ist. *] =::;
+>>>isEmpty(---list:EmptyList):Bool::= true;
+>>>isEmpty(---list:NotEmptyList):Bool::= false;
+
+size(list:List):Card 
+[* Gibt die Anzahl der Einträge in der Liste <list> zurück. *] =::;
+>>>size(---list:EmptyList):Card::= 0;
+>>>size(list:NotEmptyList):Card::= size(list.rest).+;
+
+listToString(list:List):String
+[* Gibt die Einträge der Liste <list> als Zeichenkette 
+** und jeweils durch ein Komma getrennt zurück.
+** Hat die Liste keine Einträge wird der leere String zurückgegeben. *] =::;
+>>>listToString(---list:EmptyList):String::= "";
+>>>listToString(list:NotEmptyList):String::= list.first.comparableToString.+S+(?(list.rest.isEmpty, "", COMMA().+S+(list.rest.listToString)));
+
+reverseList(list:List):String
+[* Gibt die Einträge der Liste <list> als Zeichenkette in umgedrehter Reihenfolge
+** und jeweils durch ein Komma getrennt zurück.
+** Hat die Liste keine Einträge wird der leere String zurückgegeben. *] 
+::= list.reverse.listToString;
+
+reverse(list:List):List
+[* Gibt die Liste mit umgedrehter Reihenfolge der Elemente zurück.
+** Bei der leeren Liste wird die leere Liste zurückgegeben. *] =::;
+>>>reverse(---list:EmptyList):List::= emptyList();
+>>>reverse(list:NotEmptyList):List::= list.C_.notEmptyList(list._S.reverse);

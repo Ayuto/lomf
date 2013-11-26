@@ -1,0 +1,9 @@
+"H".notEmptyList("A".notEmptyList("L".notEmptyList("L".notEmptyList("O".notEmptyList(emptyList()))))).listToString == "H,A,L,L,O"
+"H".notEmptyList("A".notEmptyList("L".notEmptyList("L".notEmptyList("O".notEmptyList(emptyList()))))).reverseList == "O,L,L,A,H"
+emptyList().isEmpty == true
+5.notEmptyList("H".notEmptyList(emptyList())).isEmpty == false
+5.notEmptyList("H".notEmptyList(emptyList())).size == 2
+5.notEmptyList("B".notEmptyList(true.notEmptyList(emptyList()))).reverse == notEmptyList(rest-->notEmptyList(rest-->notEmptyList(rest-->emptyList(),
+                                                     																																							                       first-->5),
+                                																																																					first-->"B"),
+             																																				  	 first-->true)

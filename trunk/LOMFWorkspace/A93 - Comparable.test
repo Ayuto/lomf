@@ -11,8 +11,3 @@ true.lessEq(false) == true
 true.lessEq(true) == true
 false.lessEq(false) == true
 false.lessEq(true) == false
-cash(50, usd()).lessEq("String!") == false
-int(0,5).lessEq(cash(50, usd())) == true
-cash(50, usd()).lessEq(cash(50, usd())) == true
-cash(50, usd()).lessEq(cash(60, usd())) == true
-cash(50, gbp()).lessEq(cash(50, usd())) == false

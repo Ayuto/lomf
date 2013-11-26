@@ -14,7 +14,6 @@ lessEq(x:Comparable, y:Comparable):Bool
 Fraction <<< Comparable;
 String <<< Comparable;
 Bool <<< Comparable;
-Cash <<< Comparable;
 
 >>>lessEq(x:Fraction, y:Fraction):Bool::= x.<=(y);
 >>>lessEq(---x:Fraction, ---y:String):Bool::= true;
@@ -23,9 +22,6 @@ Cash <<< Comparable;
 >>>lessEq(---x:Bool,---y:Fraction ++ String):Bool::= true;
 >>>lessEq(---x:Fraction ++ String,---y:Bool):Bool::= false;
 >>>lessEq(x:Bool,y:Bool):Bool::= x.||(y.!);
->>>lessEq(---x:Cash,---y:Bool ++ String ++ Fraction):Bool::= false;
->>>lessEq(---x:Bool ++ String ++ Fraction,---y:Cash):Bool::= true;
->>>lessEq(x:Cash,y:Cash):Bool::= y.lessCash(x).!;
 
 
 
