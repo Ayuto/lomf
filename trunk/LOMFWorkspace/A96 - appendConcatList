@@ -1,0 +1,13 @@
+{A94 - List}
+
+append(x:Comparable, list:List):List
+[* Hängt an die Liste <list> das Element <x> hinten an. *] =::;
+>>>append(x:Comparable,---list:EmptyList):List ::= x.notEmptyList(emptyList());
+>>>append(x:Comparable,list:NotEmptyList):List ::= list.first.notEmptyList(x.append(list.rest));
+
+concat(list1:List, list2:List):List
+[* Hängt an die Liste <list1> die Liste <list2> hinten an. *] =::;
+concat(---list1:EmptyList,---list2:EmptyList):List ::= emptyList();
+>>>concat(---list1:EmptyList, list2:NotEmptyList):List ::= list2;
+>>>concat(list1:NotEmptyList, ---list2:EmptyList):List ::= list1;
+>>>concat(list1:NotEmptyList, list2:NotEmptyList):List ::= list1.first.notEmptyList(concat(list1.rest, list2));
