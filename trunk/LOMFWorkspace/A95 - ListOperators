@@ -23,7 +23,9 @@ listToString(list:List):String
 ** und jeweils durch ein Komma getrennt zurück.
 ** Hat die Liste keine Einträge wird der leere String zurückgegeben. *] =::;
 >>>listToString(---list:EmptyList):String::= "";
->>>listToString(list:NotEmptyList):String::= list.first.comparableToString.+S+(?(list.rest.isEmpty, "", COMMA().+S+(list.rest.listToString)));
+>>>listToString(list:NotEmptyList):String::= list.first.comparableToString.+S+(list.rest.isEmpty.?(
+		then --> "", 
+		else --> COMMA().+S+(list.rest.listToString)));
 
 reverseList(list:List):String
 [* Gibt die Einträge der Liste <list> als Zeichenkette in umgedrehter Reihenfolge

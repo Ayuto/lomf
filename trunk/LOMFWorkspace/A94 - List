@@ -1,32 +1,34 @@
 {A93 - Comparable}
 
-emptyList:EmptyList [* eine leere Liste *];
-notEmptyList(first:Comparable, rest:List):NotEmptyList [* eine nicht leere Liste. *];
+emptyList:EmptyList [* Eine leere Liste *];
+notEmptyList(first:Comparable, rest:List):NotEmptyList [* Eine nicht leere Liste. *];
+>>>notEmptyList(first:Comparable, rest:EmptyList):OneElementList [* Eine Liste mit genau einem Element. *];
+>>>notEmptyList(first:Comparable, rest:NotEmptyList):MultiElementList [* Eine Liste mit mindestens 2 Elementen. *];
 
-EmptyList ++ NotEmptyList : List [* Abstrakter Datentyp für alle Listen. *];
+EmptyList ++ NotEmptyList: List [* Abstrakter Datentyp für alle Listen. *];
 
 _C(x:List):Comparable
 [* Gibt das erste Element aus der Liste <x> zurück.
-** Fehler, wenn <x> die leere Liste ist. *]
-::= x.asNotEmptyList.first;
+** Fehler, wenn <x> die leere Liste ist. *] =::;
+>>>_C(---x:EmptyList):Comparable ::= §();
+>>>_C(x:NotEmptyList):Comparable ::= x.first;
 
 S_(x:List):List
 [* Gibt die Liste <x> ohne das erste Element zurück.
-** Fehler, wenn <x> die leere Liste ist. *]
-::= x.asNotEmptyList.rest;
+** Fehler, wenn <x> die leere Liste ist. *] =::;
+>>>S_(---x:EmptyList):List ::= §();
+>>>S_(x:NotEmptyList):List ::= x.rest;
 
 C_(x:List):Comparable
 [* Gibt das letzte Element der Liste <x> zurück.
-** Fehler, wenn <x> die leere Liste ist. *]
-::= [list --> x.asNotEmptyList]
-list.rest.=(emptyList()).?(list.first, C_(list.rest));
+** Fehler, wenn <x> die leere Liste ist. *] =::;
+>>>C_(---x:EmptyList):Comparable ::= §();
+>>>C_(x:OneElementList):Comparable ::= x.first;
+>>>C_(x:NotEmptyList):Comparable ::= x.rest.C_;
 
 _S(x:List):List
 [* Gibt die Liste <x> ohne das letzte Element zurück.
-** Fehler, wenn <x> die leere Liste ist. *]
-::= [list --> x.asNotEmptyList] 
-list.rest.=(emptyList()).?(
-		then --> emptyList(),
-		else --> notEmptyList(list.first, _S(list.rest)));
-
-
+** Fehler, wenn <x> die leere Liste ist. *] =::;
+>>>_S(---x:EmptyList):List ::= §();
+>>>_S(---x:OneElementList):List ::= emptyList();
+>>>_S(x:NotEmptyList):List ::= x.first.notEmptyList(x.rest._S);
