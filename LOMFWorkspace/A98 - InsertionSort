@@ -1,0 +1,20 @@
+{A97 - listGenerator}
+
+insertionSort(list:List):List
+[* Sortiert die Liste <list> nach dem Insertionsort-Verfahren aufsteigend 
+** und gibt die sortierte Liste zurück. *]
+::= insertionSortHelper(list, emptyList());
+
+insertionSortHelper(list:List, sortedList:List):List
+[* Sortiert die Liste <list> aufsteigend in die Liste <sortedList>,
+** wobei <sortedList> sortiert sein muss. Ansonsten wird mit lessEq
+** von Anfang an sortiert und ggf. der Rest der Liste ignoriert. *] =::;
+>>>insertionSortHelper(---list:EmptyList,sortedList:List):List::= sortedList;
+>>>insertionSortHelper(list:NotEmptyList,sortedList:List):List::= list.S_.insertionSortHelper(sortedList.oneElementSort(list._C));
+
+oneElementSort(list:List, element:Comparable):List
+[* Sortiert das Element <element> in die sortierte Liste <list> ein. *] =::;
+>>>oneElementSort(---list:EmptyList,element:Comparable):List::= notEmptyList(element, emptyList());
+>>>oneElementSort(list:NotEmptyList,element:Comparable):List::= element.lessEq(list._C).?(
+																																		then --> element.notEmptyList(list),
+																																		else --> list._C.notEmptyList(list.S_.oneElementSort(element)));

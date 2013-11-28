@@ -1,0 +1,51 @@
+5.createReverseList == emptyList().append(5).append(4).append(3).append(2).append(1)
+0.createReverseList == emptyList()
+1.createReverseList == emptyList().append(1)
+2.createReverseList == emptyList().append(2).append(1)
+3.createReverseList == emptyList().append(3).append(2).append(1)
+4.createReverseList == emptyList().append(4).append(3).append(2).append(1)
+
+0.getLowerPrime == §()
+1.getLowerPrime == §()
+2.getLowerPrime == §()
+3.getLowerPrime == 2
+4.getLowerPrime == 3
+5.getLowerPrime == 3
+6.getLowerPrime == 5
+7.getLowerPrime == 5
+8.getLowerPrime == 7
+9.getLowerPrime == 7
+10.getLowerPrime == 7
+11.getLowerPrime == 7
+12.getLowerPrime == 11
+131.getLowerPrime == 127
+135.getLowerPrime == 131
+
+0.getUpperPrime == 2
+1.getUpperPrime == 2
+2.getUpperPrime == 3
+3.getUpperPrime == 5
+4.getUpperPrime == 5
+5.getUpperPrime == 7
+6.getUpperPrime == 7
+7.getUpperPrime == 11
+8.getUpperPrime == 11
+9.getUpperPrime == 11
+10.getUpperPrime == 11
+11.getUpperPrime == 13
+12.getUpperPrime == 13
+131.getUpperPrime == 137
+135.getUpperPrime == 137
+
+10.createRandomList.listToString == "7/1,3/1,10/1,6/1,2/1,9/1,5/1,1/1,8/1,4/1"   /* 7, 3, 10, 6, 2, 9, 5, 1, 8, 4*/
+5.createRandomList.listToString == "3/1,6/1,2/1,5/1,1/1"		/* 3, 6, 2, 5, 1 */
+0.createRandomList == §()
+1.createRandomList == §()
+2.createRandomList == §()
+3.createRandomList.listToString == "2/1,4/1,1/1"				/* 2, 4, 1 */
+4.createRandomList.listToString == "3/1,1/1,4/1,2/1"		/* 3, 1, 4, 2 */
+
+
+
+
+
