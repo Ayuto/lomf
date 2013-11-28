@@ -1,9 +1,10 @@
 {A94 - List}
+{A95 - ListOperators}
 
-append(x:Comparable, list:List):List
+append(list:List, x:Comparable):List
 [* Hängt an die Liste <list> das Element <x> hinten an. *] =::;
->>>append(x:Comparable,---list:EmptyList):List ::= x.notEmptyList(emptyList());
->>>append(x:Comparable,list:NotEmptyList):List ::= list.first.notEmptyList(x.append(list.rest));
+>>>append(---list:EmptyList, x:Comparable):List ::= x.notEmptyList(emptyList());
+>>>append(list:NotEmptyList, x:Comparable):List ::= list.first.notEmptyList(list.rest.append(x));
 
 concat(list1:List, list2:List):List
 [* Hängt an die Liste <list1> die Liste <list2> hinten an. *] =::;

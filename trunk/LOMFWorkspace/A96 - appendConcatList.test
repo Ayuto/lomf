@@ -1,0 +1,17 @@
+emptyList().append(5).append("hi").append(24).append(true).append(fraction(1,2)).listToString == "5/1,hi,24/1,true,1/2"
+5.notEmptyList("Hallo".notEmptyList(false.notEmptyList(emptyList()))).append(10).listToString == "5/1,Hallo,false,10/1"
+5.notEmptyList(6.notEmptyList(7.notEmptyList(emptyList()))) == emptyList().append(5).append(6).append(7)
+
+
+true.notEmptyList(false.notEmptyList(false.notEmptyList(true.notEmptyList(emptyList())))).concat("eins".notEmptyList("zwei".notEmptyList("drei".notEmptyList(emptyList())))).listToString
+== "true,false,false,true,eins,zwei,drei"
+true.notEmptyList(false.notEmptyList(emptyList())).concat(emptyList()).listToString == "true,false"
+false.notEmptyList(emptyList()).concat(true.notEmptyList(emptyList())).listToString == "false,true"
+emptyList().concat("h".notEmptyList("a".notEmptyList("l".notEmptyList("l".notEmptyList("o".notEmptyList(emptyList())))))).listToString == "h,a,l,l,o"
+"l".notEmptyList("l".notEmptyList("o".notEmptyList(emptyList()))).concat("h".notEmptyList("a".notEmptyList(emptyList()))).listToString == "l,l,o,h,a"
+emptyList().concat(emptyList()) == emptyList()
+
+
+
+
+

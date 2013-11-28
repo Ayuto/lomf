@@ -1,0 +1,40 @@
+{A94 - List}
+{A96 - appendConcatList}
+{A14}
+
+lowestPrime:Card [* kleinste Primzahl *] ::= 2;
+
+createReverseList(n:Card):List
+[* Generiert eine Liste mit den Zahlen von <n> bis 1, absteigend sortiert.
+** Gibt eine leere Liste zurück, wenn <n> gleich 0 ist. *]
+::= n.=(0).?(
+		then --> emptyList(),
+		else --> n.notEmptyList(emptyList()).concat(n.-C-.createReverseList));
+
+createRandomList(n:Card):List
+[* Generiert eine Card-Liste mit <n> Zahlen, die möglichst gleichmäßig verteilt sind.
+** Fehler, wenn <n> kleiner als 3 ist. *]
+::= randomListHelper(n, n.getUpperPrime, n.getLowerPrime);
+
+randomListHelper(n:Card, p:Card, q:Card):List
+[* Generiert eine Card-Liste mit <n> Zahlen, die nach dem Schema
+** q%p, 2q%p, ..., nq%p verteilt sind.
+** Gibt eine leere Liste zurück, wenn <n> gleich 0 ist. *]
+::= n.=(0).?(
+		then --> emptyList(),
+		else --> randomListHelper(n.-C-, p, q).append(n.*(q).%(p)));
+
+getUpperPrime(n:Card):Card
+[* Gibt die kleinste Zahl größer als <n> zurück, die eine Primzahl ist. *]
+::= n.+.isPrime.?(
+		then --> n.+,
+		else --> n.+.getUpperPrime);
+
+getLowerPrime(n:Card):Card
+[* Gibt die größte Zahl kleiner <n> zurück, die eine Primzahl ist.
+** Fehler, wenn <n> kleiner 3. *]
+::= n.<=(lowestPrime()).?(
+		then --> §(),
+		else --> n.-C-.isPrime.?(
+				then --> n.-C-,
+				else --> getLowerPrime(n.-C-)));
