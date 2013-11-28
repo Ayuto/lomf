@@ -5,3 +5,8 @@
 25.notEmptyList(20.notEmptyList(15.notEmptyList(emptyList()))).C_ == 15
 25.notEmptyList(20.notEmptyList(15.notEmptyList(emptyList()))).S_ == 20.notEmptyList(15.notEmptyList(emptyList()))
 25.notEmptyList(20.notEmptyList(15.notEmptyList(emptyList())))._S == 25.notEmptyList(20.notEmptyList(emptyList()))
+
+emptyList()._C == §()
+emptyList().S_ == §()
+emptyList().C_ == §()
+emptyList()._S == §()
