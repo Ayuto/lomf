@@ -63,5 +63,5 @@
 "+"._c.base64No == 62
 "/"._c.base64No == 63
 
-""._c.base64No == §()
+"ß"._c.base64No == §()
 "&"._c.base64No == §()

@@ -4,6 +4,7 @@
 "!abc".caesarEncode(2) == §()
 "abc".caesarEncode(65) == "bcd"
 "abc".caesarEncode(64) == "abc"
+"abc".caesarEncode(0) == "abc"
 
 "98rhK/v".caesarEncode(21) == "SRA2fUE"
 "Mzvkt4S".caesarEncode(7) == "T62r0/Z"
