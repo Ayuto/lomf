@@ -4,4 +4,4 @@
 
 base64No(c:Character):Card
 [* Gibt die Base64-Nummer des Base64-Zeichens zurück. *]
-::= BASE64_CHARS().firstIndexOf(c.+S+(""));
+::= BASE64_CHARS().firstIndexOf(c);
