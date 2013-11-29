@@ -6,6 +6,29 @@
 25.notEmptyList(20.notEmptyList(15.notEmptyList(emptyList()))).S_ == 20.notEmptyList(15.notEmptyList(emptyList()))
 25.notEmptyList(20.notEmptyList(15.notEmptyList(emptyList())))._S == 25.notEmptyList(20.notEmptyList(emptyList()))
 
+"u".notEmptyList("a".notEmptyList("H".notEmptyList(emptyList())))._C == "u"
+"o".notEmptyList("N".notEmptyList("J".notEmptyList("l".notEmptyList(emptyList()))))._C == "o"
+"V".notEmptyList("F".notEmptyList("S".notEmptyList("l".notEmptyList("h".notEmptyList(emptyList())))))._C == "V"
+"F".notEmptyList("K".notEmptyList("m".notEmptyList("I".notEmptyList("k".notEmptyList("u".notEmptyList(emptyList()))))))._C == "F"
+
+"G".notEmptyList(emptyList()).C_ == "G"
+"N".notEmptyList("U".notEmptyList(emptyList())).C_ == "U"
+"B".notEmptyList("u".notEmptyList("t".notEmptyList(emptyList()))).C_ == "t"
+"i".notEmptyList("p".notEmptyList("W".notEmptyList("c".notEmptyList(emptyList())))).C_ == "c"
+"f".notEmptyList("w".notEmptyList("g".notEmptyList("B".notEmptyList("v".notEmptyList(emptyList()))))).C_ == "v"
+
+"u".notEmptyList(emptyList()).S_ == emptyList()
+"a".notEmptyList("C".notEmptyList(emptyList())).S_ == "C".notEmptyList(emptyList())
+"r".notEmptyList("z".notEmptyList("m".notEmptyList(emptyList()))).S_ == "z".notEmptyList("m".notEmptyList(emptyList()))
+"T".notEmptyList("e".notEmptyList("n".notEmptyList("f".notEmptyList(emptyList())))).S_ == "e".notEmptyList("n".notEmptyList("f".notEmptyList(emptyList())))
+"Z".notEmptyList("Y".notEmptyList("C".notEmptyList("D".notEmptyList("T".notEmptyList(emptyList()))))).S_ == "Y".notEmptyList("C".notEmptyList("D".notEmptyList("T".notEmptyList(emptyList()))))
+
+"B".notEmptyList(emptyList())._S == emptyList()
+"g".notEmptyList("D".notEmptyList(emptyList()))._S == "g".notEmptyList(emptyList())
+"h".notEmptyList("Y".notEmptyList("k".notEmptyList(emptyList())))._S == "h".notEmptyList("Y".notEmptyList(emptyList()))
+"G".notEmptyList("U".notEmptyList("F".notEmptyList("o".notEmptyList(emptyList()))))._S == "G".notEmptyList("U".notEmptyList("F".notEmptyList(emptyList())))
+"u".notEmptyList("E".notEmptyList("W".notEmptyList("S".notEmptyList("d".notEmptyList(emptyList())))))._S == "u".notEmptyList("E".notEmptyList("W".notEmptyList("S".notEmptyList(emptyList()))))
+
 emptyList()._C == §()
 emptyList().S_ == §()
 emptyList().C_ == §()
