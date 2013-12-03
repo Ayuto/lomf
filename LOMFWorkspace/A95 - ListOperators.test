@@ -1,9 +1,38 @@
-"H".notEmptyList("A".notEmptyList("L".notEmptyList("L".notEmptyList("O".notEmptyList(emptyList()))))).listToString == "H,A,L,L,O"
-"H".notEmptyList("A".notEmptyList("L".notEmptyList("L".notEmptyList("O".notEmptyList(emptyList()))))).reverseList == "O,L,L,A,H"
 emptyList().isEmpty == true
 5.notEmptyList("H".notEmptyList(emptyList())).isEmpty == false
-5.notEmptyList("H".notEmptyList(emptyList())).size == 2
-5.notEmptyList("B".notEmptyList(true.notEmptyList(emptyList()))).reverse == notEmptyList(rest-->notEmptyList(rest-->notEmptyList(rest-->emptyList(),
-                                                     																																							                       first-->5),
-                                																																																					first-->"B"),
-             																																				  	 first-->true)
+1.notEmptyList(emptyList()).isEmpty == false
+
+emptyList().listToString == ""
+"H".notEmptyList("A".notEmptyList("L".notEmptyList("L".notEmptyList("O".notEmptyList(emptyList()))))).listToString == "H,A,L,L,O"
+"B".notEmptyList("U".notEmptyList("f".notEmptyList("a".notEmptyList("N".notEmptyList(emptyList()))))).listToString == "B,U,f,a,N"
+"n".notEmptyList("D".notEmptyList("c".notEmptyList("u".notEmptyList("a".notEmptyList(emptyList()))))).listToString == "n,D,c,u,a"
+"q".notEmptyList("H".notEmptyList("Y".notEmptyList("W".notEmptyList("X".notEmptyList(emptyList()))))).listToString == "q,H,Y,W,X"
+"C".notEmptyList("G".notEmptyList("T".notEmptyList("i".notEmptyList("b".notEmptyList(emptyList()))))).listToString == "C,G,T,i,b"
+"V".notEmptyList("j".notEmptyList("D".notEmptyList("l".notEmptyList("h".notEmptyList(emptyList()))))).listToString == "V,j,D,l,h"
+"f".notEmptyList("w".notEmptyList("D".notEmptyList("H".notEmptyList("S".notEmptyList(emptyList()))))).listToString == "f,w,D,H,S"
+"N".notEmptyList("B".notEmptyList("m".notEmptyList("S".notEmptyList("D".notEmptyList(emptyList()))))).listToString == "N,B,m,S,D"
+"D".notEmptyList("x".notEmptyList("f".notEmptyList("w".notEmptyList("J".notEmptyList(emptyList()))))).listToString == "D,x,f,w,J"
+"t".notEmptyList("l".notEmptyList("K".notEmptyList("D".notEmptyList("b".notEmptyList(emptyList()))))).listToString == "t,l,K,D,b"
+"G".notEmptyList("n".notEmptyList("a".notEmptyList("I".notEmptyList("g".notEmptyList(emptyList()))))).listToString == "G,n,a,I,g"
+
+"H".notEmptyList("A".notEmptyList("L".notEmptyList("L".notEmptyList("O".notEmptyList(emptyList()))))).reverseList == "O,L,L,A,H"
+"H".notEmptyList("a".notEmptyList("p".notEmptyList("Y".notEmptyList("k".notEmptyList(emptyList()))))).reverseList == "k,Y,p,a,H"
+"b".notEmptyList("z".notEmptyList("C".notEmptyList("y".notEmptyList("v".notEmptyList(emptyList()))))).reverseList == "v,y,C,z,b"
+"y".notEmptyList("j".notEmptyList("c".notEmptyList("u".notEmptyList("z".notEmptyList(emptyList()))))).reverseList == "z,u,c,j,y"
+"L".notEmptyList("z".notEmptyList("Q".notEmptyList("a".notEmptyList("j".notEmptyList(emptyList()))))).reverseList == "j,a,Q,z,L"
+"i".notEmptyList("E".notEmptyList("B".notEmptyList("u".notEmptyList("h".notEmptyList(emptyList()))))).reverseList == "h,u,B,E,i"
+"g".notEmptyList("V".notEmptyList("a".notEmptyList("p".notEmptyList("S".notEmptyList(emptyList()))))).reverseList == "S,p,a,V,g"
+"F".notEmptyList("n".notEmptyList("i".notEmptyList("k".notEmptyList("m".notEmptyList(emptyList()))))).reverseList == "m,k,i,n,F"
+"b".notEmptyList("A".notEmptyList("c".notEmptyList("e".notEmptyList("F".notEmptyList(emptyList()))))).reverseList == "F,e,c,A,b"
+"d".notEmptyList("q".notEmptyList("L".notEmptyList("H".notEmptyList("I".notEmptyList(emptyList()))))).reverseList == "I,H,L,q,d"
+"L".notEmptyList("p".notEmptyList("d".notEmptyList("R".notEmptyList("U".notEmptyList(emptyList()))))).reverseList == "U,R,d,p,L"
+
+"X".notEmptyList(emptyList()).size == 1
+"N".notEmptyList("Y".notEmptyList(emptyList())).size == 2
+"l".notEmptyList("P".notEmptyList("d".notEmptyList(emptyList()))).size == 3
+"Y".notEmptyList("l".notEmptyList("e".notEmptyList("A".notEmptyList(emptyList())))).size == 4
+"r".notEmptyList("m".notEmptyList("I".notEmptyList("M".notEmptyList("d".notEmptyList(emptyList()))))).size == 5
+
+true.comparableToString == "true"
+false.comparableToString == "false"
+fraction(1, 1).comparableToString == "1/1"
