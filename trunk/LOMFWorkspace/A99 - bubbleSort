@@ -1,0 +1,16 @@
+{A97 - listGenerator}
+
+bubbleSort(x:List):List
+[* Sortiert die Liste <x> aufsteigend mit dem Sortierverfahren bubble-sort. *]
+::= [sorted_list --> x.bubbleSortHelper]
+x.=(sorted_list).?(
+		then --> x,
+		else --> sorted_list.bubbleSort);
+
+bubbleSortHelper(x:List):List
+[* Ein Bubble-sort Durchgang. *] =::;
+>>>bubbleSortHelper(x:OneElementList ++ EmptyList):List ::= x;
+>>>bubbleSortHelper(x:MultiElementList):List
+::= x.first.lessEq(x.rest.first).?(
+		then --> x.first.notEmptyList(x.rest.bubbleSortHelper),
+		else --> x.rest.first.notEmptyList(x.first.notEmptyList(x.rest.rest).bubbleSortHelper));
