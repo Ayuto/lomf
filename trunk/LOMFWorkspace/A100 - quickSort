@@ -1,30 +1,26 @@
 {A97 - listGenerator}
 
 quickSort(x:List):List
-[* Sortiert die Liste <x> aufsteigend mit dem quickSort-Verfahren und gibt die
-** sortierte Liste zurück. *] =::;
->>>quickSort(x:EmptyList):EmptyList::= x;
->>>quickSort(x:NotEmptyList):List
-::= [L1 --> x._C.lowerList(x.S_),
-		 L2 --> x._C.upperList(x.S_)]
- quickSort(L1).append(x._C).concat(L2);
+[* Sortiert die Liste <x> aufsteigend mit dem Sortierverfahren Quick-Sort. *]
+::= x;
+>>>quickSort(x:MultiElementList):List
+::= [pivot --> x.first]
+		[lower --> x.rest.smaller(pivot),
+		upper --> x.rest.greaterOrEqual(pivot)]
+	  lower.quickSort.concat(pivot.notEmptyList(upper.quickSort));
 
-lowerList(element:Comparable, x:List):List
-[* Gibt die Liste zurück, die nur die Elemente aus <x> enthält, 
-** die lessEquals <element> sind. *]=::;
->>>lowerList(---element:Comparable,x:EmptyList):List::= x;
->>>lowerList(element:Comparable,x:NotEmptyList):List::= x._C.lessEq(element).?(
-																														then --> x._C.notEmptyList(lowerList(element, x.S_)),
-																														else --> lowerList(element, x.S_));
+smaller(x:List, ---pivot:Comparable):List
+[* Filtert die Werte, die kleiner als <pivot> sind. *]
+::= x;
+>>>smaller(x:NotEmptyList,pivot:Comparable):List
+::= pivot.lessEq(x.first).?(
+		then --> x.rest.smaller(pivot),
+		else --> x.first.notEmptyList(x.rest.smaller(pivot)));
 
-upperList(element:Comparable, x:List):List
-[* Gibt die Liste zurück, die nur die Elemente aus <x> enthält,
-** die nicht lessEquals <element> sind. *]=::;
->>>upperList(---element:Comparable,x:EmptyList):List::= x;
->>>upperList(element:Comparable,x:NotEmptyList):List::= x._C.lessEq(element).?(
-																														then --> upperList(element, x.S_),
-																														else --> x._C.notEmptyList(upperList(element, x.S_)));
-
-
-
-
+greaterOrEqual(x:List, ---pivot:Comparable):List
+[* Filtert die Werte, die größer oder gleich <pivot> sind. *]
+::= x;
+>>>greaterOrEqual(x:NotEmptyList, pivot:Comparable):List
+::= pivot.lessEq(x.first).?(
+		then --> x.first.notEmptyList(x.rest.greaterOrEqual(pivot)),
+		else --> x.rest.greaterOrEqual(pivot));
