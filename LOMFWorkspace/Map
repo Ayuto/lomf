@@ -1,0 +1,46 @@
+{A93 - Comparable}
+
+:Value [* Abstrakter Typ Value *];
+Fraction <<< Value;
+String <<< Value;
+Bool <<< Value;
+
+:Key [* Abstrakter Typ Key *];
+Comparable <<< Key;
+
+equals(x:Key, y:Key):Bool
+[* Überprüft, ob <x> gleich <y> entspricht. *] =::;
+>>>equals(x:Bool ++ String, y:Bool ++ String):Bool
+::= x.=(y);
+>>>equals(---x:Bool ++ Fraction ++ String, ---y:Bool ++ Fraction ++ String):Bool
+::= false;
+
+
+emptyMap():EmptyMap [* Leere Map *];
+notEmptyMap(key:Key, value:Value, map:Map):NotEmptyMap [* Abbildung von Key auf Value. *];
+
+EmptyMap ++ NotEmptyMap: Map [* Vereinigung von NotEmptyMap und EmptyMap. *];
+
+createMap():Map
+[* Erstellt eine leere Map. *]
+::= emptyMap();
+
+put(m:Map, k:Key,v:Value):Map
+[* Fügt <k> und <v> zur Map hinzu. Wenn <k> bereits existiert,
+** wird der alte Wert überschieben, *] =::;
+>>>put(---m:EmptyMap, k:Key, v:Value):Map
+::= notEmptyMap(k, v, emptyMap());
+>>>put(m:NotEmptyMap, k:Key, v:Value):Map
+::= m.key.equals(k).?(
+		then --> notEmptyMap(k, v, m.map),
+		else --> notEmptyMap(m.key, m.value, m.map.put(k, v)));
+
+get(m:Map, k:Key):Value
+[* Gibt den Wert zurück, der unter dem Key gespeichert ist.
+** Ist der Key nicht vorhanden, wird ein Fehler ausgegeben. *] =::;
+>>>get(---m:EmptyMap, ---k:Key):Value
+::= §("Key wurde nicht gefunden.", §());
+>>>get(m:NotEmptyMap, k:Key):Value
+::= m.key.equals(k).?(
+		then --> m.value,
+		else --> m.map.get(k));

@@ -1,0 +1,10 @@
+createMap().put(3, "b").put(8, "o").put(6, "i").put(5, "q").put(7, "d").get(3) == "b"
+createMap().put(4, "j").put(7, "B").put(3, "z").put(2, "e").put(0, "h").get(4) == "j"
+createMap().put(2, "x").put(7, "I").put(1, "P").put(3, "M").put(6, "u").get(6) == "u"
+createMap().put(6, "T").put(8, "e").put(7, "Z").put(5, "b").put(2, "y").get(5) == "b"
+createMap().put(2, "g").put(5, "B").put(3, "I").put(6, "h").put(0, "k").get(5) == "B"
+createMap().put(9, "n").put(6, "R").put(5, "f").put(0, "d").put(3, "F").get("F") == §()
+createMap().put(0, "p").put(4, "t").put(7, "R").put(6, "F").put(8, "x").get(3) == §()
+createMap().put(7, "T").put(3, "n").put(6, "F").put(5, "f").put(2, "q").get(3) == "n"
+createMap().put(1, "e").put(3, "d").put(9, "I").put(7, "j").put(4, "m").get(3) == "d"
+createMap().put(3, "D").put(3, "E").put(5, "N").put(2, "V").put(1, "y").get(3) == "E"
