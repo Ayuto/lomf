@@ -17,3 +17,5 @@
 8.notEmptyList(4.notEmptyList(3.notEmptyList(5.notEmptyList(12.notEmptyList(emptyList()))))).bubbleSort.listToString == "3/1,4/1,5/1,8/1,12/1"
 
 emptyList().bubbleSort.listToString == ""
+
+"c".notEmptyList("b".notEmptyList("a".notEmptyList("c".notEmptyList("d".notEmptyList(emptyList()))))).bubbleSort.listToString == "a,b,c,c,d"
