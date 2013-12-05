@@ -17,4 +17,24 @@
 
 emptyList().mergeSort.listToString == ""
 
-"c".notEmptyList("b".notEmptyList("a".notEmptyList("c".notEmptyList("d".notEmptyList(emptyList()))))).mergeSort.listToString == "a,b,c,c,d"
+"F".notEmptyList("L".notEmptyList("r".notEmptyList("E".notEmptyList("e".notEmptyList(emptyList()))))).mergeSort.listToString == "E,F,L,e,r"
+"H".notEmptyList("z".notEmptyList("V".notEmptyList("x".notEmptyList("j".notEmptyList(emptyList()))))).mergeSort.listToString == "H,V,j,x,z"
+"L".notEmptyList("R".notEmptyList("S".notEmptyList("B".notEmptyList("d".notEmptyList(emptyList()))))).mergeSort.listToString == "B,L,R,S,d"
+"S".notEmptyList("H".notEmptyList("z".notEmptyList("c".notEmptyList("B".notEmptyList(emptyList()))))).mergeSort.listToString == "B,H,S,c,z"
+"e".notEmptyList("a".notEmptyList("p".notEmptyList("i".notEmptyList("V".notEmptyList(emptyList()))))).mergeSort.listToString == "V,a,e,i,p"
+"h".notEmptyList("m".notEmptyList("Q".notEmptyList("x".notEmptyList("V".notEmptyList(emptyList()))))).mergeSort.listToString == "Q,V,h,m,x"
+"H".notEmptyList("f".notEmptyList("d".notEmptyList("p".notEmptyList("l".notEmptyList(emptyList()))))).mergeSort.listToString == "H,d,f,l,p"
+"y".notEmptyList("Y".notEmptyList("g".notEmptyList("R".notEmptyList("b".notEmptyList(emptyList()))))).mergeSort.listToString == "R,Y,b,g,y"
+"a".notEmptyList("j".notEmptyList("M".notEmptyList("i".notEmptyList("t".notEmptyList(emptyList()))))).mergeSort.listToString == "M,a,i,j,t"
+"E".notEmptyList("Z".notEmptyList("t".notEmptyList("S".notEmptyList("Y".notEmptyList(emptyList()))))).mergeSort.listToString == "E,S,Y,Z,t"
+"X".notEmptyList("C".notEmptyList("T".notEmptyList("c".notEmptyList("k".notEmptyList(emptyList()))))).mergeSort.listToString == "C,T,X,c,k"
+"s".notEmptyList("q".notEmptyList("F".notEmptyList("A".notEmptyList("p".notEmptyList(emptyList()))))).mergeSort.listToString == "A,F,p,q,s"
+"P".notEmptyList("x".notEmptyList("V".notEmptyList("f".notEmptyList("d".notEmptyList(emptyList()))))).mergeSort.listToString == "P,V,d,f,x"
+"d".notEmptyList("k".notEmptyList("F".notEmptyList("h".notEmptyList("f".notEmptyList(emptyList()))))).mergeSort.listToString == "F,d,f,h,k"
+"W".notEmptyList("t".notEmptyList("B".notEmptyList("b".notEmptyList("o".notEmptyList(emptyList()))))).mergeSort.listToString == "B,W,b,o,t"
+"b".notEmptyList("H".notEmptyList("L".notEmptyList("L".notEmptyList("A".notEmptyList(emptyList()))))).mergeSort.listToString == "A,H,L,L,b"
+
+emptyList().take(0) == emptyList()
+emptyList().take(2) == §()
+emptyList().skip(0) == emptyList()
+emptyList().skip(2) == §()
