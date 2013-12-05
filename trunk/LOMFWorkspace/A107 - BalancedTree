@@ -1,0 +1,48 @@
+{A106 - insertDeleteElement}
+
+nichtLeererBaum(wurzel:Comparable, links:Baum, rechts:Baum, hoehe:Card):NichtLeererBaum [* Ein nicht leerer binärer Baum, der sich an jedem Knoten die Höhe merkt. *];
+leererBaum:LeererBaum [* Ein leerer binärer Baum. *];
+
+NichtLeererBaum ++ LeererBaum : Baum [* Ein binärer Baum, der sich an jedem Knoten die Höhe merkt. *];
+
+nonEmptyBalancedTree(wurzel:Comparable, links:BalancedTree, rechts:BalancedTree, hoehe:Card):NonEmptyBalancedTree [* Ein nicht leerer balancierter binäre Baum. *];
+emptyBalancedTree:EmptyBalancedTree [* Ein leerer balancierter binärer Baum. *];
+
+knoten(wurzel:Comparable):NonEmptyBalancedTree
+[* Erzeugt einen nicht leeren balancierten Baum mit der Wurzel <wurzel>. *]
+::= nonEmptyBalancedTree(wurzel, emptyBalancedTree(), emptyBalancedTree(), 1);
+
+NonEmptyBalancedTree ++ EmptyBalancedTree : BalancedTree [* Ein balancierter binärer Baum. *];
+
+
+
+createBalancedTree(x:Baum):BalancedTree
+[* Gibt den binären balancierten Baum <x> als BalancedTree zurück.
+** Fehler, wenn <x> nicht balanciert ist. *] =::;
+>>>createBalancedTree(---x:LeererBaum):BalancedTree ::= emptyBalancedTree();
+>>>createBalancedTree(x:NichtLeererBaum):BalancedTree
+::= x.links.=(leererBaum()).&&(x.rechts.=(leererBaum())).?(
+		then --> x.wurzel.knoten,
+		else --> x.links.asNichtLeererBaum.hoehe.-(x.rechts.asNichtLeererBaum.hoehe).abs.<=(1).?(
+				then --> nonEmptyBalancedTree(x.wurzel, x.links.asBalancedTree, x.rechts.asBalancedTree, x.hoehe),
+				else --> §()));
+
+height(x:Baum ++ BalancedTree):Card [* Gibt die Höhe des binären Baums zurück. *] =::;
+>>>height(---x:EmptyBalancedTree ++ LeererBaum):Card ::= 0;
+>>>height(x:NonEmptyBalancedTree):Card ::= x.hoehe;
+>>>height(x:NichtLeererBaum):Card ::= x.hoehe;
+
+treeToString(x:Baum ++ BalancedTree):String
+[* Gibt den binären Baum <x> in strukturierter Reihenfolge zurück.
+** Wobei die leere Liste innerhalb eines Baumes als () dargestellt wird. *] =::;
+>>>treeToString(---x:EmptyBalancedTree):String ::= "";
+>>>treeToString(---x:LeererBaum):String ::= "";
+>>>treeToString(x:NonEmptyBalancedTree):String ::= x.convertToTree.treeToString;
+>>>treeToString(x:NichtLeererBaum):String ::= x.convertToTree.treeToString;
+
+convertToTree(x:BalancedTree ++ Baum):Tree
+[* Wandelt den Baum <x> in den Datentyp Tree um. *] =::;
+>>>convertToTree(---x:EmptyBalancedTree):Tree ::= emptyTree();
+>>>convertToTree(x:NonEmptyBalancedTree):Tree ::= x.wurzel.notEmptyTree(x.links.convertToTree,x.rechts.convertToTree);
+>>>convertToTree(---x:LeererBaum):Tree ::= emptyTree();
+>>>convertToTree(x:NichtLeererBaum):Tree ::= x.wurzel.notEmptyTree(x.links.convertToTree,x.rechts.convertToTree);
