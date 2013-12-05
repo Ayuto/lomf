@@ -1,0 +1,35 @@
+{A105 - toTree}
+
+insert(tree:Tree, element:Comparable):Tree
+[* Fügt das Element <element> in den binären Baum <tree> ein. *] =::;
+>>>insert(---tree:EmptyTree,element:Comparable):Tree ::= element.node;
+>>>insert(tree:NotEmptyTree,element:Comparable):Tree ::= element.lessEq(tree.root).?(
+																														then --> tree.root.notEmptyTree(tree.left.insert(element), tree.right),
+																														else --> tree.root.notEmptyTree(tree.left, tree.right.insert(element)));
+
+delete(tree:Tree, element:Comparable):Tree
+[* Löscht das Element <element> aus dem binären Baum <tree>. 
+** Gibt einen Fehler zurück, wenn <element> nicht in <tree> enthalten ist. *] =::;
+>>>delete(---tree:EmptyTree,---element:Comparable):Tree ::= §();
+>>>delete(tree:NotEmptyTree,element:Comparable):Tree
+::= tree.root.=(element).?(
+		then --> tree.deleteHelper,
+		else --> element.lessEq(tree.root).?(
+				then --> tree.root.notEmptyTree(tree.left.delete(element), tree.right),
+				else --> tree.root.notEmptyTree(tree.left, tree.right.delete(element))));
+
+deleteHelper(tree:Tree):Tree
+[* Löscht das erste Element aus dem binären Baum <tree>.
+** Gibt einen Fehler zurück, wenn <tree> der leere Baum ist. *] =::;
+>>>deleteHelper(---tree:EmptyTree):Tree ::= §();
+>>>deleteHelper(tree:NotEmptyTree):Tree
+::= tree.left.=(emptyTree()).||(tree.right.=(emptyTree())).?(
+		then --> tree.left.=(emptyTree()).?(tree.right, tree.left),
+		else --> [highestElement --> tree.left.searchHighestElement]
+						 highestElement.notEmptyTree(tree.left.delete(highestElement),tree.right));
+
+searchHighestElement(tree:Tree):Comparable
+[* Gibt das größte Element eines sortierten binären Baumes <tree> zurück.
+** Gibt Fehler zurück, wenn <tree> der leere Baum ist. *] =::;
+>>>searchHighestElement(---tree:EmptyTree):Comparable ::= §();
+>>>searchHighestElement(tree:NotEmptyTree):Comparable ::= tree.right.=(emptyTree()).?(tree.root, tree.right.searchHighestElement);
