@@ -7,7 +7,3 @@ height(5.notEmptyTree(6.notEmptyTree(7.node,emptyTree()),4.notEmptyTree(3.node,2
 5.node == 5.notEmptyTree(emptyTree(),emptyTree())
 "Hallo".node == "Hallo".notEmptyTree(emptyTree(),emptyTree())
 
-height(8.notEmptyTree(7.notEmptyTree(6.node,emptyTree()), 11.notEmptyTree(9.notEmptyTree(emptyTree(),10.node),13.notEmptyTree(12.node,14.notEmptyTree(emptyTree(),15.node))).treeToString.treeToStructuredString == "(9(10))11((12)13(14(15)))"
-
-U.notEmptyTree(K.notEmptyTree(C.notEmptyTree(E.notEmptyTree(Z.node, I.node)T.node, U.notEmptyTree(N.node, J.node)B.node), S.notEmptyTree(X.notEmptyTree(V.node, M.node)H.node, 6.notEmptyTree(P.node, O.node)A.node))E.notEmptyTree(O.notEmptyTree(8.node, 0.node)4.node, 8.notEmptyTree(X.node, A.node)A.node), 5.notEmptyTree(E.notEmptyTree(7.notEmptyTree(D.node, L.node)0.node, S.notEmptyTree(Q.node, 1.node)6.node), C.notEmptyTree(A.notEmptyTree(0.node, 4.node)R.node, D.notEmptyTree(D.node, R.node)9.node))H.notEmptyTree(6.notEmptyTree(8.node, Q.node)H.node, 3.notEmptyTree(E.node, C.node)Q.node))Z.notEmptyTree(E.notEmptyTree(9.notEmptyTree(A.node, K.node)5.node, V.notEmptyTree(G.node, P.node)O.node), M.notEmptyTree(B.notEmptyTree(G.node, 2.node)F.node, 3.notEmptyTree(8.node, 1.node)L.node))
-
