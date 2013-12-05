@@ -1,0 +1,41 @@
+{A93 - Comparable}
+{A95 - ListOperators}
+{A43}
+
+KLAMMER1:String [* Klammer auf zur Strukurierung der Baumausgabe. *] ::= "(";
+KLAMMER2:String [* Klammer zu zur Strukurierung der Baumausgabe. *] ::= ")";
+EMPTY_TREE_STRING:String [* Repräsentation des leeren binären Baumes bei der strukturierten Ausgabe *] ::= KLAMMER1().+S+(KLAMMER2());
+UNUSED_FRACTION_STRING:String [* Repräsentation eines ganzzahligen Wertes als Bruch. *] ::= "/1";
+
+emptyTree:EmptyTree [* Ein leerer Baum. *];
+
+notEmptyTree(root:Comparable, left:Tree, right:Tree):NotEmptyTree 
+[* Ein nicht leerer Baum mit einem Knoten <root> sowie einem linken Teilbaum <left> 
+** und einem rechten Teilbaum <right>. *];
+
+node(root:Comparable):NotEmptyTree
+[* Liefert einen nicht leeren Baum mit dem Knoten <root> sowie zwei leeren Teilbäumen. *]
+::= root.notEmptyTree(emptyTree(),emptyTree());
+
+EmptyTree ++ NotEmptyTree : Tree [* Ein binärer Baum. *];
+
+height(x:Tree):Card
+[* Gibt die Höhe des binären Baumes <x> zurück. *] =::;
+>>>height(---x:EmptyTree):Card ::= 0;
+>>>height(x:NotEmptyTree):Card ::= max(height(x.left), height(x.right)).+;
+
+treeToLinearString(x:Tree):String
+[* Gibt den binären Baum <x> in linearer Reihenfolge zurück. *] =::;
+>>>treeToLinearString(---x:EmptyTree):String ::= "";
+>>>treeToLinearString(x:NotEmptyTree):String ::= x.left.treeToLinearString.+S+(x.root.comparableToString).+S+(x.right.treeToLinearString);
+
+treeToStringHelper(x:Tree):String
+[* Gibt den binären Baum <x> in strukturierter Reihenfolge zurück.
+** Wobei die leere Liste innerhalb eines Baumes als () dargestellt wird. *] =::;
+>>>treeToStringHelper(---x:EmptyTree):String ::= "";
+>>>treeToStringHelper(x:NotEmptyTree):String ::= KLAMMER1().+S+(x.left.treeToString).+S+(KLAMMER2()).+S+(x.root.comparableToString).+S+(KLAMMER1()).+S+(x.right.treeToString).+S+(KLAMMER2());
+
+treeToString(x:Tree):String
+[* Formatiert den String <x> der Ausgabe von treeToString. *]
+::= x.treeToStringHelper.removeAll(EMPTY_TREE_STRING()).removeAll(UNUSED_FRACTION_STRING());
+
