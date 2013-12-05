@@ -1,0 +1,43 @@
+{A95 - ListOperators}
+{A96 - appendConcatList}
+
+mergeSort(x:List):List
+[* Sortiert die Liste <x> aufsteigend mit dem Sortierverfahren mergeSort. *]
+::= x;
+>>>mergeSort(x:MultiElementList):List
+::= [split --> x.splitAt( x.size./C/(2))]
+		split.x1.mergeSort.merge(split.x2.mergeSort);
+
+merge(x1:List, x2:List):List
+[* Führt zwei Listen unter Vergleich des ersten Elements zusammen. *]
+::= x1.concat(x2);
+>>>merge(x1:NotEmptyList, x2:NotEmptyList):List
+::= x1.first.lessEq(x2.first).?(
+		then --> x1.first.notEmptyList(x1.rest.merge(x2)),
+		else --> x2.first.notEmptyList(x1.merge(x2.rest)));
+
+/*
+Hilfsfunktionen
+*/
+listTuple(x1:List, x2:List):ListTuple [* Ein Tuple mit zwei Listen. *];
+
+splitAt(x:List, position:Card):ListTuple
+[* Spaltet die Liste an der Position <position>.
+** Die Länge der ersten Liste ist <position>. *]
+::= listTuple(x.take(position), x.skip(position));
+
+take(x:List, n:Card):List
+[* Gibt eine Liste mit den ersten <n> Elementen zurück. *]
+::= n.=(0).?(x, §());
+>>>take(x:NotEmptyList, n:Card):List
+::= n.=(0).?(
+		then --> emptyList(),
+		else --> x.first.notEmptyList(x.rest.take(n.-C-)));
+
+skip(x:List, n:Card):List
+[* Gibt eine Liste mit den letzen <n> Elementen zurück. *]
+::= n.=(0).?(x, §());
+>>>skip(x:NotEmptyList, n:Card):List
+::= n.=(0).?(
+		then --> x,
+		else --> x.rest.skip(n.-C-));
