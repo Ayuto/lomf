@@ -1,0 +1,24 @@
+{A97 - listGenerator}
+
+listPair(first:List, second:List):ListPair [* Ein paar aus zwei linearen Listen. *];
+
+listSeperator(x:List):ListPair
+[* Teilt die Liste <x> in zwei möglichst gleich große Teillisten, die als Paar zurückgegeben werden. *]
+::= [index --> x.size./C/]
+		x.listBegin(index).listPair(x.listEnd(index));
+
+listBegin(x:List, index:Card)[x.size.>(index)]:List
+[* Gibt die Liste <x> bis vor dem Index <index> zurück. (Index exklusiv). *]=::;
+>>>listBegin(x:EmptyList,---index:Card):List ::= x;
+>>>listBegin(x:NotEmptyList,index:Card):List ::= index.=(0).?(
+																										then --> emptyList(),
+																										else --> x.first.notEmptyList(listBegin(x.rest, index.-C-)));
+
+listEnd(x:List, index:Card)[x.size.>(index)]:List
+[* Gibt die Liste <x> ab dem Index <index> zurück. (Index inklusiv). *] =::;
+>>>listEnd(x:EmptyList, ---index:Card):List ::= x;
+>>>listEnd(x:NotEmptyList, index:Card):List ::= index.=(0).?(
+																										then --> x,
+																										else --> listEnd(x.rest, index.-C-));
+
+

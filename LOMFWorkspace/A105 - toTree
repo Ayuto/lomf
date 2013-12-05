@@ -1,0 +1,18 @@
+{A104 - Tree}
+{listHelper}
+{A98 - InsertionSort}
+
+listToTree(x:List):Tree
+[* Wandelt die nicht sortierte Liste <x> in einen binären sortierten Baum um.
+** Gibt einen Fehler aus, wenn die Liste nicht mindestens 3 Elemente enthält. *]
+::= x.insertionSort.toTree;
+
+toTree(x:List):Tree
+[* Wandelt eine sortierte lineare Liste <x> in einen binären Baum um. *] =::;
+>>>toTree(---x:EmptyList):Tree ::= emptyTree();
+>>>toTree(x:OneElementList):Tree ::= x._C.node;
+>>>toTree(x:NotEmptyList):Tree 
+::= [upper --> x.listSeperator.second,
+		 lower --> x.listSeperator.first]
+upper._C.notEmptyTree(lower.toTree,upper.S_.toTree);
+
