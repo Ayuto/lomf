@@ -1,3 +1,18 @@
 10.createReverseList.listToTree.insert(11).treeToString == "(((1)2)3((4)5))6(((7)8)9(10(11)))"
 6.notEmptyList(4.notEmptyList(2.notEmptyList(1.notEmptyList(5.notEmptyList(7.notEmptyList(8.notEmptyList(9.notEmptyList(10.notEmptyList(emptyList()))))))))).listToTree.insert(3).treeToString == "(((1)2(3))4(5))6(((7)8)9(10))"
 10.createReverseList.listToTree.delete(6).treeToString == "(((1)2)3(4))5(((7)8)9(10))"
+
+
+0.createReverseList.listToTree.insert(11).treeToString == "11"
+1.createReverseList.listToTree.insert(11).treeToString == "1(11)"
+2.createReverseList.listToTree.insert(11).treeToString == "(1)2(11)"
+3.createReverseList.listToTree.insert(2).treeToString == "(1(2))2(3)"
+
+
+0.createReverseList.listToTree.delete(6).treeToString == §()
+1.createReverseList.listToTree.delete(6).treeToString == §()
+1.createReverseList.listToTree.delete(1).treeToString == ""
+2.createReverseList.listToTree.delete(1).treeToString == "2"
+3.createReverseList.listToTree.delete(2).treeToString == "1(3)"
+4.createReverseList.listToTree.delete(4).treeToString == "((1)2)3"
+

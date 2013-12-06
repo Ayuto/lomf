@@ -1,9 +1,33 @@
 height(emptyTree()) == 0
 height(5.node) == 1
+height(16.node) == 1
 height(5.notEmptyTree(4.node,emptyTree())) == 2
+height(5.notEmptyTree(4.node,3.node)) == 2
+height(5.notEmptyTree(emptyTree(),3.node)) == 2
+height(5.notEmptyTree(4.notEmptyTree(3.node,2.node),5.notEmptyTree(emptyTree(), 3.node))) == 3
+height(5.notEmptyTree(4.notEmptyTree(3.node,2.node),5.notEmptyTree(3.node, emptyTree()))) == 3
+height(5.notEmptyTree(4.notEmptyTree(emptyTree(),2.node),5.notEmptyTree(3.node, emptyTree()))) == 3
+height(5.notEmptyTree(4.notEmptyTree(3.node,emptyTree()),5.notEmptyTree(3.node, emptyTree()))) == 3
+height(5.notEmptyTree(4.notEmptyTree(3.node,2.node),5.notEmptyTree(3.node, 2.node))) ==3
 height(5.notEmptyTree(4.node, 5.notEmptyTree(emptyTree(), 3.node))) == 3
 height(5.notEmptyTree(6.notEmptyTree(7.node,emptyTree()),4.notEmptyTree(3.node,2.notEmptyTree(1.node,emptyTree())))) == 4
 
 5.node == 5.notEmptyTree(emptyTree(),emptyTree())
 "Hallo".node == "Hallo".notEmptyTree(emptyTree(),emptyTree())
 
+<<<<<<< .mine5.comparableToString == "5/1"
+
+treeToLinearString(emptyTree()) == ""
+
+treeToLinearString(4.node) == "4/1"
+treeToLinearString(5.notEmptyTree(4.node,emptyTree())) == "4/15/1"
+treeToLinearString(5.notEmptyTree(4.node,3.node)) == "4/15/13/1"
+treeToLinearString(5.notEmptyTree(emptyTree(),3.node)) == "5/13/1"
+treeToLinearString(5.notEmptyTree(4.notEmptyTree(3.node,2.node),5.notEmptyTree(emptyTree(), 3.node))) == "3/14/12/15/15/13/1"
+treeToLinearString(5.notEmptyTree(4.notEmptyTree(3.node,2.node),5.notEmptyTree(3.node, emptyTree()))) == "3/14/12/15/13/15/1"
+treeToLinearString(5.notEmptyTree(4.notEmptyTree(emptyTree(),2.node),5.notEmptyTree(3.node, emptyTree()))) == "4/12/15/13/15/1"
+treeToLinearString(5.notEmptyTree(4.notEmptyTree(3.node,emptyTree()),5.notEmptyTree(3.node, emptyTree()))) == "3/14/15/13/15/1"
+treeToLinearString(5.notEmptyTree(4.notEmptyTree(3.node,2.node),5.notEmptyTree(3.node, 2.node))) == "3/14/12/15/13/15/12/1"
+treeToLinearString(5.notEmptyTree(4.node, 5.notEmptyTree(emptyTree(), 3.node))) == "4/15/15/13/1"
+treeToLinearString(5.notEmptyTree(6.notEmptyTree(7.node,emptyTree()),4.notEmptyTree(3.node,2.notEmptyTree(1.node,emptyTree())))) == "7/16/15/13/14/11/12/1"
+=======>>>>>>> .theirs
