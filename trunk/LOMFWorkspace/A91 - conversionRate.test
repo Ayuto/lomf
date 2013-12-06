@@ -9,3 +9,4 @@ convert(cash(200, usd()), usd()) == "200/1 US Dollar"
 cash(200, usd()).lessCash(cash(200, gbp())) == true
 cash(200, usd()).lessCash(cash(200, usd())) == false
 cash(0, eur()).lessCash(cash(1, usd())) == true
+cash(0, usd()).lessCash(cash(1, eur())) == true
