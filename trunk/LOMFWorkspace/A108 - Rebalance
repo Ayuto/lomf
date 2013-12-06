@@ -19,15 +19,36 @@ rebalanceHelper(x:NonEmptyBalancedTree):NonEmptyBalancedTree
 
 insertAndRebalanceHelper(x:BalancedTree, newElement:Comparable):NonEmptyBalancedTree
 [* F¸gt das Element <newElement> in den bin‰ren Baum <x> ein. *] =::;
->>>insertAndRebalanceHelper(---x:EmptyBalancedTree,newElement:Comparable):NonEmptyBalancedTree ::= newElement.nonEmptyBalancedTree(emptyBalancedTree(),emptyBalancedTree(),1);
+>>>insertAndRebalanceHelper(---x:EmptyBalancedTree,newElement:Comparable):NonEmptyBalancedTree
+::= newElement.nonEmptyBalancedTree(
+				emptyBalancedTree(),
+				emptyBalancedTree(),
+				1
+);
 >>>insertAndRebalanceHelper(x:NonEmptyBalancedTree,newElement:Comparable):NonEmptyBalancedTree
 ::= newElement.lessEq(x.wurzel).?(
-		then --> x.wurzel.nonEmptyBalancedTree(x.links.insertAndRebalanceHelper(newElement),x.rechts,x.hoehe.+),
-		else --> x.wurzel.nonEmptyBalancedTree(x.links,x.rechts.insertAndRebalanceHelper(newElement),x.hoehe.+));
+		then --> x.wurzel.nonEmptyBalancedTree(
+								x.links.insertAndRebalanceHelper(newElement),
+								x.rechts,
+								x.hoehe.+
+						 ),
+		else --> x.wurzel.nonEmptyBalancedTree(
+								x.links,
+								x.rechts.insertAndRebalanceHelper(newElement),
+								x.hoehe.+
+						 )
+);
 
 rebalance1(x:NonEmptyBalancedTree):NonEmptyBalancedTree
 [* Rebalanciert den bin‰ren Baum <x>, wenn der rechte Teilbaum des rechten Teilbaums zu groﬂ ist. *]
-::= x.rechts.asNonEmptyBalancedTree.wurzel.nonEmptyBalancedTree(x.wurzel.nonEmptyBalancedTree(x.links,x.rechts.asNonEmptyBalancedTree.links,x.hoehe.-C-(2)),x.rechts.asNonEmptyBalancedTree.rechts,x.rechts.height);
+::= x.rechts.asNonEmptyBalancedTree.wurzel.nonEmptyBalancedTree(
+				x.wurzel.nonEmptyBalancedTree(
+						x.links,x.rechts.asNonEmptyBalancedTree.links,
+						x.hoehe.-C-(2)
+				),
+				x.rechts.asNonEmptyBalancedTree.rechts,
+				x.rechts.height
+);
 
 rebalance2(x:NonEmptyBalancedTree):NonEmptyBalancedTree
 [* Rebalanciert den bin‰ren Baum <x>, wenn der linke Teilbaum des rechten Teilbaums zu groﬂ ist. *]
@@ -39,7 +60,15 @@ y.wurzel.nonEmptyBalancedTree(left,right,max(left.height, right.height).+);
 
 rebalance3(x:NonEmptyBalancedTree):NonEmptyBalancedTree
 [* Rebalanciert den bin‰ren Baum <x>, wenn der linke Teilbaum des linken Teilbaums zu groﬂ ist. *]
-::= x.links.asNonEmptyBalancedTree.wurzel.nonEmptyBalancedTree(x.links.asNonEmptyBalancedTree.links,x.wurzel.nonEmptyBalancedTree(x.links.asNonEmptyBalancedTree.rechts,x.rechts,x.hoehe.-C-(2)),x.links.height);
+::= x.links.asNonEmptyBalancedTree.wurzel.nonEmptyBalancedTree(
+				x.links.asNonEmptyBalancedTree.links,
+				x.wurzel.nonEmptyBalancedTree(
+						x.links.asNonEmptyBalancedTree.rechts,
+						x.rechts,
+						x.hoehe.-C-(2)
+				),
+				x.links.height
+);
 
 rebalance4(x:NonEmptyBalancedTree):NonEmptyBalancedTree
 [* Rebalanciert den bin‰ren Baum <x>, wenn der rechte Teilbaum des linken Teilbaums zu groﬂ ist. *]
@@ -47,4 +76,8 @@ rebalance4(x:NonEmptyBalancedTree):NonEmptyBalancedTree
 		[y --> z.rechts.asNonEmptyBalancedTree]
 		[left --> z.wurzel.nonEmptyBalancedTree(z.links,y.links,max(y.links.height, z.links.height).+),
 		 right --> x.wurzel.nonEmptyBalancedTree(y.rechts,x.rechts,max(y.rechts.height, x.rechts.height).+)]
-y.wurzel.nonEmptyBalancedTree(left,right,max(left.height, right.height).+);
+		y.wurzel.nonEmptyBalancedTree(
+				left,
+				right,
+				max(left.height, right.height).+
+);
