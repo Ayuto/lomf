@@ -1,24 +1,19 @@
 {A97 - listGenerator}
 
 bubbleSort(x:List):List
-[* Sortiert die Liste <x> aufsteigend mit dem Sortierverfahren Bubble-Sort. *]
-::= x.bubbleSortIterator(x.size);
-
-bubbleSortIterator(x:List, ---n:Card):List
-[* Gibt die Liste nach <n> Sortierdurchläufen zurück. *]
-::= x;
->>>bubbleSortIterator(x:NotEmptyList, n:Card):List
-::= n.=(1).?(
+[* Sortiert die Liste <x> aufsteigend mit dem Sortierverfahren bubble-sort. *]
+::= [sorted_list --> x.bubbleSortHelper]
+x.=(sorted_list).?(
 		then --> x,
-		else --> [iterations --> n.-C-]
-							x.bubbleSortIteration(iterations).bubbleSortIterator(iterations));
+		else --> sorted_list.bubbleSort);
 
-bubbleSortIteration(x:List, ---n:Card):List
-[* Ein Bubble-Sort Durchlauf für die ersten <n> Elemente. *]
-::= x;
->>>bubbleSortIteration(x:MultiElementList, n:Card):List
-::= n.=(0).?(
-		then --> x,
-		else --> x.first.lessEq(x.rest.first).?(
-				then --> x.first.notEmptyList(x.rest.bubbleSortIteration(n.-C-)),
-				else --> x.rest.first.notEmptyList(x.first.notEmptyList(x.rest.S_).bubbleSortIteration(n.-C-))));
+bubbleSortHelper(x:List):List
+[* Ein Bubble-sort Durchgang. *] =::;
+>>>bubbleSortHelper(x:OneElementList ++ EmptyList):List ::= x;
+>>>bubbleSortHelper(x:MultiElementList):List
+::= x.first.lessEq(x.rest.first).?(
+		then --> x.first.notEmptyList(x.rest.bubbleSortHelper),
+		else --> x.rest.first.notEmptyList(
+								x.first.notEmptyList(x.rest.rest).bubbleSortHelper
+						 )
+);

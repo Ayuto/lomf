@@ -3,9 +3,10 @@
 insert(tree:Tree, element:Comparable):Tree
 [* Fügt das Element <element> in den binären Baum <tree> ein. *] =::;
 >>>insert(---tree:EmptyTree,element:Comparable):Tree ::= element.node;
->>>insert(tree:NotEmptyTree,element:Comparable):Tree ::= element.lessEq(tree.root).?(
-																														then --> tree.root.notEmptyTree(tree.left.insert(element), tree.right),
-																														else --> tree.root.notEmptyTree(tree.left, tree.right.insert(element)));
+>>>insert(tree:NotEmptyTree,element:Comparable):Tree
+::= element.lessEq(tree.root).?(
+		then --> tree.root.notEmptyTree(tree.left.insert(element), tree.right),
+		else --> tree.root.notEmptyTree(tree.left, tree.right.insert(element)));
 
 delete(tree:Tree, element:Comparable):Tree
 [* Löscht das Element <element> aus dem binären Baum <tree>. 
@@ -32,4 +33,5 @@ searchHighestElement(tree:Tree):Comparable
 [* Gibt das größte Element eines sortierten binären Baumes <tree> zurück.
 ** Gibt Fehler zurück, wenn <tree> der leere Baum ist. *] =::;
 >>>searchHighestElement(---tree:EmptyTree):Comparable ::= §();
->>>searchHighestElement(tree:NotEmptyTree):Comparable ::= tree.right.=(emptyTree()).?(tree.root, tree.right.searchHighestElement);
+>>>searchHighestElement(tree:NotEmptyTree):Comparable
+::= tree.right.=(emptyTree()).?(tree.root, tree.right.searchHighestElement);
