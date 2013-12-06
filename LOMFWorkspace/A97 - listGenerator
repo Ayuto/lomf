@@ -5,7 +5,7 @@
 lowestPrime:Card [* kleinste Primzahl *] ::= 2;
 
 createReverseList(n:Card):List
-[* Generiert eine Liste mit den Zahlen von <n> bis 1, absteigend sortiert.
+[* Generiert eine Liste ** mit den Zahlen von <n> bis 1, absteigend sortiert.
 ** Gibt eine leere Liste zurück, wenn <n> gleich 0 ist. *]
 ::= n.=(0).?(
 		then --> emptyList(),
